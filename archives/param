@@ -1,0 +1,12 @@
+CREATE TABLE order_actions_log (
+    log_id SERIAL PRIMARY KEY,           -- Auto-incrementing ID for each log entry
+    order_id TEXT NOT NULL,               -- The ID of the order being updated
+    action TEXT NOT NULL,                -- Description of the action performed
+    user_id TEXT NOT NULL,                -- The ID of the user who performed the action
+    old_value TEXT,                      -- Previous value before update (optional)
+    new_value TEXT,                      -- New value after update (optional)
+	state INT,
+    timestamp TIMESTAMP DEFAULT NOW(),   -- Timestamp of the action
+    remarks TEXT                         -- Additional notes or information (optional)
+);
+
