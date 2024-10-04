@@ -1,9 +1,53 @@
 from datetime import datetime
+import pyodbc
+from sqlalchemy import create_engine, text
+
 class User():
     REFUSER=""
     REFPWD=""
     REFFULLNAME =""
 
+class ReflexConenctor():
+    ReflexConn = None
+    ReflexCursor = None  
+    def __init__(self) :
+        self.ReflexConn = None
+        self.ReflexCursor = None  
+    def connect(self):
+        try:
+            self.ReflexConn = pyodbc.connect(
+                    'DRIVER={iSeries Access ODBC Driver};'
+                    f'SYSTEM=TDCRFX52;'
+                    f'UID={User.REFUSER};' # to replace with inputs 
+                    f'PWD={User.REFPWD}'  # Remplace par ton mot de passe
+            )
+            self.ReflexCursor = self.ReflexConn.cursor()
+            return 1
+        except Exception as error:
+            print(f"Error while connecting to REFLEX: {error}")
+            return 0
+
+class SolvixDBConnector():
+    SolviXconn = None
+    SolviXcursor = None  
+    SolviXengine = None
+     
+    def __init__(self) :
+       
+        try:    
+            # self.SolviXconn = psycopg2.connect(
+            #         dbname="Solvix",
+            #         user="Usolvix",
+            #         password="1234",
+            #         host="10.49.0.179",  # or the IP address of your server
+            #         port="5432",      # Default PostgreSQL port
+            #     )
+            # self.SolviXcursor = self.SolviXconn.cursor()
+
+            self.SolviXengine = create_engine(f'postgresql://Usolvix:1234@10.49.0.179:5432/Solvix')
+            
+        except Exception as error:
+            print(f"Error while connecting to REFLEX: {error}")
 
 class Settings():
     # APP SETTINGS
@@ -16,11 +60,10 @@ class Settings():
 
     # BTNS LEFT AND RIGHT BOX COLORS
     BTN_LEFT_BOX_COLOR = "background-color: rgb(44, 49, 58);"
-    BTN_RIGHT_BOX_COLOR = "background-color: #ff79c6;"
+    BTN_RIGHT_BOX_COLOR = "background-color: rgb(243, 158, 78) ;"
 
     # MENU SELECTED STYLESHEET
     MENU_SELECTED_STYLESHEET = """
-    border-left: 22px solid qlineargradient(spread:pad, x1:0.034, y1:0, x2:0.216, y2:0, stop:0.499 rgba(255, 121, 198, 255), stop:0.5 rgba(85, 170, 255, 0));
     background-color: rgb(243, 158, 78);
     """
 
@@ -39,6 +82,8 @@ class Settings():
     #  ' loc AS "Emplacement avec quantité",
     #  ' qty AS "Quantité sans prélèvement" ,
     #   npcmnp AS "Reason Code",
+    
+ 
     PICK_ANOMALIES = """
     SELECT 
     oerodp AS "Commande",

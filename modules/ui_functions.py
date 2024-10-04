@@ -1,6 +1,8 @@
 # MAIN FILE
 # ///////////////////////////////////////////////////////////////
 from main import *
+from sqlalchemy import  text
+from sqlalchemy.exc import SQLAlchemyError
 
 # GLOBALS
 # ///////////////////////////////////////////////////////////////
@@ -258,58 +260,25 @@ class UIFunctions(MainWindow):
 
     def getuserinfo(self):
         try:
-            ReflexConn = pyodbc.connect(
-                    'DRIVER={iSeries Access ODBC Driver};'
-                    f'SYSTEM=TDCRFX52;'
-                    f'UID={User.REFUSER};' # to replace with inputs 
-                    f'PWD={User.REFPWD}'  # Remplace par ton mot de passe
-            )
-            ReflexCursor = ReflexConn.cursor()
-                # Fetch data from ReflexCursor
             query = f"""select UTLUTI from AMAZONBD.hlutilp where UTCUTI = '{User.REFUSER}'"""
-            print (query)
-            ReflexCursor.execute(query)
-            result = ReflexCursor.fetchall()
+            self.RefConenctor.ReflexCursor.execute(query)
+            result = self.RefConenctor.ReflexCursor.fetchall()
             User.REFFULLNAME=result[0][0].strip()
         except Exception as error:
             print(f"Error while connecting to REFLEX: {error}")
         
 
     def getAnomalies(self):
-
-        try:
-            # Connect to PostgreSQL server
-            global SolviXconn
-            SolviXconn = psycopg2.connect(
-                dbname=Settings.DBNAME,
-                user=Settings.DBUSER,
-                password=Settings.DBPWD,
-                host=Settings.DBHOST,  # or the IP address of your server
-                port=Settings.DBPORT,      # Default PostgreSQL port
-            )
-            # Create a cursor object
-            global SolviXcursor
-            SolviXcursor = SolviXconn.cursor()
-            
-            SolviXengine = create_engine(f'postgresql://Usolvix:1234@10.49.0.179:5432/Solvix')
-    
-        except Exception as error:
-            print(f"Error while connecting to PostgreSQL: {error}")
-
-
-        with SolviXengine.connect() as connection:
+        with self.SolvixConenctor.SolviXengine.connect() as connection:
             trans = connection.begin()
             try:
-                query = text("SELECT * FROM anomalies;")
+                query = text("""SELECT anomalies.*,Case when hospital_location is null then 'non trouvé' else hospital_location end as "location hospital" FROM anomalies Left outer join hospital on "Asin"=asin;""")
                 result = connection.execute(query)
                 records = result.fetchall()
-                # Get column names
                 columns = result.keys()
-                # Commit the transaction (not strictly necessary for SELECT queries)
                 trans.commit()
                 # Convert the results to a DataFrame
                 df = pd.DataFrame(records, columns=columns)
-
                 return df
             except Exception as e:
                 # If any error occurs, rollback the transaction
@@ -319,30 +288,21 @@ class UIFunctions(MainWindow):
             
     def refreshDBwithanomalies(self):
         try:
-            # global ReflexConn
-            ReflexConn = pyodbc.connect(
-                'DRIVER={iSeries Access ODBC Driver};'
-                f'SYSTEM=TDCRFX52;'
-                f'UID={User.REFUSER};' # to replace with inputs 
-                f'PWD={User.REFPWD}'  # Remplace par ton mot de passe
-            )
-            # global ReflexCursor
-            ReflexCursor = ReflexConn.cursor()
-            # Fetch data from ReflexCursor
-            ReflexCursor.execute(Settings.PICK_ANOMALIES)
-            result = ReflexCursor.fetchall()
+     
+            self.RefConenctor.ReflexCursor.execute(Settings.PICK_ANOMALIES)
+            result = self.RefConenctor.ReflexCursor.fetchall()
 
             # Get column headers
-            headers = [column[0] for column in ReflexCursor.description]
+            headers = [column[0] for column in self.RefConenctor.ReflexCursor.description]
 
             # Clean up and convert the data into a DataFrame
             data = [[str(item).strip() if item is not None else "" for item in row] for row in result]
             df = pd.DataFrame(data, columns=headers)
-            SolviXengine = create_engine(f'postgresql://Usolvix:1234@10.49.0.179:5432/Solvix')
+            # SolviXengine = create_engine(f'postgresql://Usolvix:1234@10.49.0.179:5432/Solvix')
 
 
             # Start a connection and transaction
-            with SolviXengine.connect() as connection:
+            with self.SolvixConenctor.SolviXengine.connect() as connection:
                 # Start a transaction
                 trans = connection.begin()
                 try:
@@ -352,7 +312,7 @@ class UIFunctions(MainWindow):
                     print("Old records deleted from 'anomalies' table.")
 
                     # Step 2: Insert the new data into the anomalies table
-                    df.to_sql('anomalies', SolviXengine, if_exists='append', index=False)
+                    df.to_sql('anomalies', self.SolvixConenctor.SolviXengine, if_exists='append', index=False)
                     print("New data inserted successfully into 'anomalies' table.")
 
                     for index, row in df.iterrows():
@@ -382,6 +342,29 @@ class UIFunctions(MainWindow):
             print(f"Error executing SQL: {e}")
         except Exception as e:
             print(f"Error: {e}")
+
+
+    def addnewSurplus(self,Asin,picking_user,Mission,quantite,Emp_initial,hospital_emp) :
+        with self.SolvixConenctor.SolviXengine.connect() as connection:
+            # Start a transaction
+            trans = connection.begin()
+            try:
+                insert_query = text("""INSERT INTO public.hospital (asin, solver_id,mission,picker_id,quantité,initial_location,hospital_location)
+                        VALUES (:asin,:solver_id,:mission,:picking_user,:quantite,:initial_location,:hospital_emp)""")
+                connection.execute(insert_query, {'asin': Asin,'solver_id':User.REFFULLNAME, 'mission':Mission,'picking_user':picking_user,'quantite':quantite,'initial_location':Emp_initial,'hospital_emp':hospital_emp})
+
+     
+                trans.commit()
+
+
+
+            except Exception as e:
+                # If any error occurs, rollback the transaction
+                trans.rollback()
+                print(f"Error during transaction: {e}")
+
+
+
 
     
     

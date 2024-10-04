@@ -1,19 +1,9 @@
-# SQL query for fetching data
-import psycopg2
-from psycopg2 import sql
-import pandas as pd
-import pyodbc
-from sqlalchemy import create_engine, text
-from sqlalchemy.exc import SQLAlchemyError
-
-import sys
-import os
-import platform
 
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from modules import *
 from widgets import *
+
 
 # from widgets import *
 os.environ["QT_FONT_DPI"] = "96" # FIX Problem for High DPI and Scale above 100%
@@ -25,6 +15,9 @@ widgets = None
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
+        # setting the reflex connection object 
+        self.RefConenctor = ReflexConenctor()
+        self.SolvixConenctor=SolvixDBConnector()
 
         # SET AS GLOBAL WIDGETS
         # ///////////////////////////////////////////////////////////////
@@ -75,6 +68,9 @@ class MainWindow(QMainWindow):
         #logout function to btn
         widgets.btn_logout.clicked.connect(self.logout)
 
+        # add new surplus 
+        widgets.new_surplus.clicked.connect(self.new_surplus)
+
 
 
         #  to delete
@@ -95,22 +91,28 @@ class MainWindow(QMainWindow):
 
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        useCustomTheme = False
-        themeFile = "themes\Solvix_light.qss"
+        # useCustomTheme = False
+        # themeFile = "themes\Solvix_light.qss"
 
-        # SET THEME AND HACKS
-        # to check this it s used for what   
-        if useCustomTheme:
-            # LOAD AND APPLY STYLE
-            UIFunctions.theme(self, themeFile, True)
+        # # SET THEME AND HACKS
+        # # to check this it s used for what   
+        # if useCustomTheme:
+        #     # LOAD AND APPLY STYLE
+        #     UIFunctions.theme(self, themeFile, True)
 
-            # SET HACKS
-            AppFunctions.setThemeHack(self)
+        #     # SET HACKS
+        #     AppFunctions.setThemeHack(self)
 
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.login)
         widgets.btn_login.setStyleSheet(UIFunctions.selectMenu(widgets.btn_login.styleSheet()))
+        widgets.btn_home.setVisible(False)
+        widgets.btn_surplus.setVisible(False)
+        widgets.btn_widgets.setVisible(False)
+        widgets.pushButton_2.setVisible(False)
+        # widgets.btn_home.setEnabled(False)
+
 
 
     # BUTTONS CLICK
@@ -126,6 +128,8 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(widgets.home)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+            
+           
 
         # SHOW WIDGETS PAGE
         if btnName == "btn_widgets":
@@ -139,6 +143,7 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(widgets.login) # SET PAGE
             UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
+        
 
          # SHOW NEW PAGE
         if btnName == "btn_surplus":
@@ -181,27 +186,58 @@ class MainWindow(QMainWindow):
         User.REFUSER=username
         User.REFPWD=password
         if len(username) != 8:
-            QMessageBox.warning(self, "Erreur", "R520 ou mot de passe incorrecte: " + str(e))
+            toast = Toast(self)
+            toast.setDuration(5000)  # Hide after 5 seconds
+            toast.setTitle('Erreur ! R520 ou mot de passe incorrecte ')
+            toast.applyPreset(ToastPreset.ERROR)  # Apply style preset
+            toast.setBackgroundColor(QColor('#282C34'))
+            toast.setTitleColor(QColor('#FFFFFF'))
+            toast.setDurationBarColor(QColor('#F39E4E'))
+            toast.setIconColor(QColor('#F39E4E'))
+            toast.setIconSeparatorColor(QColor('#F39E4E'))
+            toast.setCloseButtonIconColor(QColor('#F39E4E'))
+            toast.show()            
             return 
 
         if btnName == "login_button":
             print("connection btn clicked")
- 
-            try:
-                conn = pyodbc.connect(
-                    'DRIVER={iSeries Access ODBC Driver};'
-                    f'SYSTEM=TDCRFX52;'
-                    f'UID={username};'
-                    f'PWD={password};'
-                )
-                QMessageBox.information(self, "Succès", "Connexion réussie !")
-                widgets.stackedWidget.setCurrentWidget(widgets.home)
+            
+            if self.RefConenctor.connect() : 
                 self.GetPickAnomalies()
                 UIFunctions.getuserinfo(self)
                 widgets.UserInfo.setText(User.REFFULLNAME)
+                widgets.btn_home.setVisible(True)
+                widgets.btn_surplus.setVisible(True)
+                widgets.btn_widgets.setVisible(True)
+                widgets.pushButton_2.setVisible(True)
+                widgets.btn_login.setVisible(False)
+                widgets.stackedWidget.setCurrentWidget(widgets.home) # SET PAGE
+                widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+                toast = Toast(self)
+                toast.setDuration(5000)  # Hide after 5 seconds
+                toast.setTitle('Succès ! Bienvenue '+ User.REFFULLNAME)
+                toast.applyPreset(ToastPreset.SUCCESS)  # Apply style preset
+                toast.setBackgroundColor(QColor('#282C34'))
+                toast.setTitleColor(QColor('#FFFFFF'))
+                toast.setDurationBarColor(QColor('#F39E4E'))
+                toast.setIconColor(QColor('#F39E4E'))
+                toast.setIconSeparatorColor(QColor('#F39E4E'))
+                toast.setCloseButtonIconColor(QColor('#F39E4E'))
+                toast.show()
+            else : 
+                toast = Toast(self)
+                toast.setDuration(5000)  # Hide after 5 seconds
+                toast.setTitle('Erreur ! R520 ou mot de passe incorrecte ')
+                toast.applyPreset(ToastPreset.ERROR)  # Apply style preset
+                toast.setBackgroundColor(QColor('#282C34'))
+                toast.setTitleColor(QColor('#FFFFFF'))
+                toast.setDurationBarColor(QColor('#F39E4E'))
+                toast.setIconColor(QColor('#F39E4E'))
+                toast.setIconSeparatorColor(QColor('#F39E4E'))
+                toast.setCloseButtonIconColor(QColor('#F39E4E'))
+                toast.show()
 
-            except pyodbc.Error as e:
-                QMessageBox.warning(self, "Erreur", "Connexion échouée: " + str(e))
+            
             
 
     def GetPickAnomalies(self):
@@ -244,9 +280,62 @@ class MainWindow(QMainWindow):
             User.REFFULLNAME=''
             widgets.PickAnomalies.clear()
             widgets.stackedWidget.setCurrentWidget(widgets.login)
+            widgets.btn_home.setVisible(False)
+            widgets.btn_surplus.setVisible(False)
+            widgets.btn_widgets.setVisible(False)
+            widgets.pushButton_2.setVisible(False)
+            widgets.btn_login.setVisible(True)
+            widgets.btn_login.setStyleSheet(UIFunctions.selectMenu(widgets.btn_login.styleSheet()))
+    
+    def new_surplus(self):
+        btn = self.sender()
+        btnName = btn.objectName()
 
+        if btnName == "new_surplus":
+            # Fetch input values
+            asin = widgets.Asin.text().strip()
+            picking_user = widgets.picking_user.text().strip()
+            mission = widgets.Mission.text().strip()
+            quantite = widgets.quantite.text().strip()
+            emp_initial = widgets.Emp_initial.text().strip()
+            hospital_emp = widgets.hospital_emp.currentText().strip()
+            print(hospital_emp)
+            # Input validation
+            if not asin:
+                QMessageBox.warning(self, "Input Error", "ASIN cannot be empty.")
+                return
+            if not picking_user:
+                QMessageBox.warning(self, "Input Error", "Picking User cannot be empty.")
+                return
+            if not mission:
+                QMessageBox.warning(self, "Input Error", "Mission cannot be empty.")
+                return
+            if not quantite or not quantite.isdigit():
+                QMessageBox.warning(self, "Input Error", "Quantity must be a valid number.")
+                return
+            if not emp_initial:
+                QMessageBox.warning(self, "Input Error", "Initial Emp cannot be empty.")
+                return
+            if not hospital_emp:
+                QMessageBox.warning(self, "Input Error", "Hospital Emp cannot be empty.")
+                return
 
-               
+            # If all validations pass, call the function to add a new surplus
+            
+            UIFunctions.addnewSurplus(self,asin, picking_user, mission, quantite, emp_initial, hospital_emp)
+            toast = Toast(self)
+            toast.setDuration(2000)  # Hide after 5 seconds
+            toast.setTitle('Succès ! Le nouveau surplus a été ajouté avec succès.')
+            toast.applyPreset(ToastPreset.SUCCESS)  # Apply style preset
+            toast.show()
+            widgets.Asin.setText("")
+            widgets.picking_user.setText("")
+            widgets.Mission.setText("")
+            widgets.quantite.setText("")
+            widgets.Emp_initial.setText("")
+            widgets.hospital_emp.setCurrentIndex(0)
+
+                
         
   
 

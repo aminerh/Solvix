@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-
-################################################################################
-## Form generated from reading UI file 'main.ui'
-##
-## Created by: Qt User Interface Compiler version 6.7.2
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
-
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -45,6 +35,11 @@ class Ui_MainWindow(object):
 "\n"
 "///////////////////////////////////////////////////////////////////////////////////////////////// */\n"
 "\n"
+"QDialog{\n"
+"background-color: #808080;\n"
+"color: #FFA500;\n"
+"border: 1px solid #333333;}\n"
+
 "QWidget{\n"
 "	color: rgb(221, 221, 221);\n"
 "	font: 10pt \"Segoe UI\";\n"
@@ -60,7 +55,7 @@ class Ui_MainWindow(object):
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
-"	border-left: 2px solid rgb(255, 121, 198);\n"
+"	border-left: 2px solid RGB(243, 158, 78);\n"
 "	text-align: left;\n"
 "	padding-left: 8px;\n"
 "	margin: 0px;\n"
@@ -102,8 +97,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(40, 44, 52);\n"
 "}\n"
 "#topMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(1"
-                        "89, 147, 249);\n"
+"	background-color: RGB(243, 158, 78);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "#bottomMenu .QPushButton {	\n"
@@ -129,16 +123,16 @@ class Ui_MainWindow(object):
 "/* Toggle Button */\n"
 "#toggleButton {\n"
 "	background-position: left center;\n"
-"    background-repeat: no-repeat;\n"
+"       background-repeat: no-repeat;\n"
 "	border: none;\n"
 "	border-left: 20px solid transparent;\n"
 "	background-color: rgb(37, 41, 48);\n"
 "	text-align: left;\n"
 "	padding-left: 44px;\n"
-"	color: rgb(113, 126, 149);\n"
+"	color: white;\n"
 "}\n"
 "#toggleButton:hover {\n"
-"	background-color: rgb(229, 119, 16);\n"
+"	background-color: rgb(229, 119, 16)     ;\n"
 "}\n"
 "#toggleButton:pressed {\n"
 "	background-color: rgb(243, 158, 78);\n"
@@ -208,7 +202,7 @@ class Ui_MainWindow(object):
 "#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
 "#rightButtons .QPushButton:hover { background-color: rgb(229, 119, 16); border-st"
                         "yle: solid; border-radius: 4px; }\n"
-"#rightButtons .QPushButton:pressed { background-color: rgb(243, 158, 78); border-style: solid; border-radius: 4px; }\n"
+"#rightButtons .QPushButton:pressed { background-color: RGB(229, 119, 16); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Theme Settings */\n"
 "#extraRightBox { background-color: rgb(44, 49, 58); }\n"
@@ -216,7 +210,7 @@ class Ui_MainWindow(object):
 "\n"
 "/* Bottom Bar */\n"
 "#bottomBar { background-color: rgb(44, 49, 58); }\n"
-"#bottomBar QLabel { font-size: 11px; color: rgb(113, 126, 149); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }\n"
+"#bottomBar QLabel { font-size: 11px; color: rgb(229, 119, 16); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }\n"
 "\n"
 "/* CONTENT SETTINGS */\n"
 "/* MENUS */\n"
@@ -289,13 +283,13 @@ class Ui_MainWindow(object):
 "	border: 2px solid rgb(33, 37, 43);\n"
 "	padding-left: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
-"	selection-background-color: rgb(255, 121, 198);\n"
+"	selection-background-color: RGB(243, 158, 78);\n"
 "}\n"
 "QLineEdit:hover {\n"
 "	border: 2px solid rgb(64, 71, 88);\n"
 "}\n"
 "QLineEdit:focus {\n"
-"	border: 2px solid rgb(91, 101, 124);\n"
+"	border: 2px solid RGB(243, 158, 78);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -306,7 +300,7 @@ class Ui_MainWindow(object):
 "	padding: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
 "	selection-background-"
-                        "color: rgb(255, 121, 198);\n"
+                        "color: RGB(243, 158, 78);\n"
 "}\n"
 "QPlainTextEdit  QScrollBar:vertical {\n"
 "    width: 8px;\n"
@@ -433,7 +427,7 @@ class Ui_MainWindow(object):
 "    border: 3px solid rgb(58, 66, 81);\n"
 "}\n"
 "QRadioButton::indicator:checked {\n"
-"    background: 3px solid rgb(94, 106, 130);\n"
+"    background: 3px solid RGB(243, 158, 78);\n"
 "	border: 3px solid rgb(52, 59, 72);	\n"
 "}\n"
 "\n"
@@ -451,8 +445,7 @@ class Ui_MainWindow(object):
 "}\n"
 "QComboBox::drop-down {\n"
 "	subcontrol-origin: padding;\n"
-"	subco"
-                        "ntrol-position: top right;\n"
+"	subcontrol-position: top right;\n"
 "	width: 25px; \n"
 "	border-left-width: 3px;\n"
 "	border-left-color: rgba(39, 44, 54, 150);\n"
@@ -464,7 +457,7 @@ class Ui_MainWindow(object):
 "	background-repeat: no-reperat;\n"
 " }\n"
 "QComboBox QAbstractItemView {\n"
-"	color: rgb(255, 121, 198);	\n"
+"	color: rgb(255, 255, 255);	\n"
 "	background-color: rgb(33, 37, 43);\n"
 "	padding: 10px;\n"
 "	selection-background-color: rgb(39, 44, 54);\n"
@@ -491,7 +484,7 @@ class Ui_MainWindow(object):
 "	border-radius: 5px;\n"
 "}\n"
 "QSlider::handle:horizontal:hover {\n"
-"    background-color: rgb(195, 155, 255);\n"
+"    background-color: RGB(243, 158, 78);\n"
 "}\n"
 "QSlider::handle:horizontal:pressed {\n"
 "    background-color:rgb(243, 158, 78);\n"
@@ -515,17 +508,17 @@ class Ui_MainWindow(object):
 "	border-radius: 5px;\n"
 "}\n"
 "QSlider::handle:vertical:hover {\n"
-"    background-color: rgb(195, 155, 255);\n"
+"    background-color: rgb(243,158,78);\n"
 "}\n"
 "QSlider::handle:vertical:pressed {\n"
-"    background-color: rgb(255, 121, 198);\n"
+"    background-color: rgb(243,158,78);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "CommandLinkButton */\n"
 "QCommandLi"
                         "nkButton {	\n"
-"	color: rgb(255, 121, 198);\n"
+"	color: RGB(243, 158, 78);\n"
 "	border-radius: 5px;\n"
 "	padding: 5px;\n"
 "	color: rgb(255, 170, 255);\n"
@@ -710,7 +703,14 @@ class Ui_MainWindow(object):
         self.btn_surplus.setFont(font)
         self.btn_surplus.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.btn_surplus.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.btn_surplus.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-library-add.png)")
+        self.btn_surplus.setStyleSheet("""
+    QPushButton {
+        background-image: url(:/icons/images/icons/cil-library-add.png);
+    }
+    QPushButton:pressed {
+        background-image: url(:/icons/images/icons/cil-library-add.png);
+    }
+""")
 
         self.verticalLayout_8.addWidget(self.btn_surplus)
 
@@ -1355,6 +1355,8 @@ class Ui_MainWindow(object):
         self.gridLayout_4.addWidget(self.Mission, 2, 3, 1, 1, Qt.AlignmentFlag.AlignHCenter)
 
         self.hospital_emp = QComboBox(self.frame_2)
+        self.hospital_emp.setEditable(True)
+
         self.hospital_emp.addItem("")
         self.hospital_emp.addItem("")
         self.hospital_emp.addItem("")
@@ -1516,29 +1518,29 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.hospital_emp, 3, 1, 1, 1, Qt.AlignmentFlag.AlignHCenter)
 
-        self.username_4 = QLineEdit(self.frame_2)
-        self.username_4.setObjectName(u"username_4")
-        self.username_4.setMinimumSize(QSize(350, 30))
-        self.username_4.setMaximumSize(QSize(120, 16777215))
-        self.username_4.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.Emp_initial = QLineEdit(self.frame_2)
+        self.Emp_initial.setObjectName(u"Emp_initial")
+        self.Emp_initial.setMinimumSize(QSize(350, 30))
+        self.Emp_initial.setMaximumSize(QSize(120, 16777215))
+        self.Emp_initial.setStyleSheet(u"background-color: rgb(33, 37, 43);")
 
-        self.gridLayout_4.addWidget(self.username_4, 3, 3, 1, 1, Qt.AlignmentFlag.AlignHCenter)
+        self.gridLayout_4.addWidget(self.Emp_initial, 3, 3, 1, 1, Qt.AlignmentFlag.AlignHCenter)
 
-        self.lineEdit_2 = QLineEdit(self.frame_2)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setMinimumSize(QSize(350, 30))
-        self.lineEdit_2.setMaximumSize(QSize(120, 16777215))
-        self.lineEdit_2.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.picking_user = QLineEdit(self.frame_2)
+        self.picking_user.setObjectName(u"picking_user")
+        self.picking_user.setMinimumSize(QSize(350, 30))
+        self.picking_user.setMaximumSize(QSize(120, 16777215))
+        self.picking_user.setStyleSheet(u"background-color: rgb(33, 37, 43);")
 
-        self.gridLayout_4.addWidget(self.lineEdit_2, 0, 1, 1, 1, Qt.AlignmentFlag.AlignHCenter)
+        self.gridLayout_4.addWidget(self.picking_user, 0, 1, 1, 1, Qt.AlignmentFlag.AlignHCenter)
 
-        self.lineEdit_3 = QLineEdit(self.frame_2)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
-        self.lineEdit_3.setMinimumSize(QSize(350, 30))
-        self.lineEdit_3.setMaximumSize(QSize(120, 16777215))
-        self.lineEdit_3.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.quantite = QLineEdit(self.frame_2)
+        self.quantite.setObjectName(u"quantite")
+        self.quantite.setMinimumSize(QSize(350, 30))
+        self.quantite.setMaximumSize(QSize(120, 16777215))
+        self.quantite.setStyleSheet(u"background-color: rgb(33, 37, 43);")
 
-        self.gridLayout_4.addWidget(self.lineEdit_3, 2, 1, 1, 1, Qt.AlignmentFlag.AlignHCenter)
+        self.gridLayout_4.addWidget(self.quantite, 2, 1, 1, 1, Qt.AlignmentFlag.AlignHCenter)
 
 
         self.verticalLayout_20.addWidget(self.frame_2)
@@ -1550,15 +1552,15 @@ class Ui_MainWindow(object):
         self.frame_4.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_9 = QVBoxLayout(self.frame_4)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.pushButton_3 = QPushButton(self.frame_4)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMinimumSize(QSize(150, 40))
-        self.pushButton_3.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.new_surplus = QPushButton(self.frame_4)
+        self.new_surplus.setObjectName(u"new_surplus")
+        self.new_surplus.setMinimumSize(QSize(150, 40))
+        self.new_surplus.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         icon8 = QIcon()
         icon8.addFile(u":/icons/images/icons/cil-save.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.pushButton_3.setIcon(icon8)
+        self.new_surplus.setIcon(icon8)
 
-        self.verticalLayout_9.addWidget(self.pushButton_3, 0, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignVCenter)
+        self.verticalLayout_9.addWidget(self.new_surplus, 0, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignVCenter)
 
 
         self.verticalLayout_20.addWidget(self.frame_4)
@@ -1713,8 +1715,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"PyDracula", None))
-        self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"Modern GUI / Flat Style", None))
+        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"SOLVIX", None))
+        self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"By Solvix Team", None))
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
@@ -1972,12 +1974,12 @@ class Ui_MainWindow(object):
         self.hospital_emp.setItemText(151, QCoreApplication.translate("MainWindow", u"HOPI.004 45 D", None))
 
         self.hospital_emp.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Emp Hospital", None))
-        self.username_4.setText("")
-        self.username_4.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Emp inital ou Chemin picking", None))
-        self.lineEdit_2.setText("")
-        self.lineEdit_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"User Picking R520", None))
-        self.lineEdit_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Quantit\u00e9", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Enregistrer ", None))
+        self.Emp_initial.setText("")
+        self.Emp_initial.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Emp inital ou Chemin picking", None))
+        self.picking_user.setText("")
+        self.picking_user.setPlaceholderText(QCoreApplication.translate("MainWindow", u"User Picking R520", None))
+        self.quantite.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Quantit\u00e9", None))
+        self.new_surplus.setText(QCoreApplication.translate("MainWindow", u"Enregistrer ", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
