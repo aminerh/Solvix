@@ -256,9 +256,27 @@ class UIFunctions(MainWindow):
             self.top_grip.setGeometry(0, 0, self.width(), 10)
             self.bottom_grip.setGeometry(0, self.height() - 10, self.width(), 10)
 
-    
+    def getuserinfo(self):
+        try:
+            ReflexConn = pyodbc.connect(
+                    'DRIVER={iSeries Access ODBC Driver};'
+                    f'SYSTEM=TDCRFX52;'
+                    f'UID={User.REFUSER};' # to replace with inputs 
+                    f'PWD={User.REFPWD}'  # Remplace par ton mot de passe
+            )
+            ReflexCursor = ReflexConn.cursor()
+                # Fetch data from ReflexCursor
+            query = f"""select UTLUTI from AMAZONBD.hlutilp where UTCUTI = '{User.REFUSER}'"""
+            print (query)
+            ReflexCursor.execute(query)
+            result = ReflexCursor.fetchall()
+            User.REFFULLNAME=result[0][0].strip()
+        except Exception as error:
+            print(f"Error while connecting to REFLEX: {error}")
+        
 
     def getAnomalies(self):
+
         try:
             # Connect to PostgreSQL server
             global SolviXconn
@@ -301,14 +319,14 @@ class UIFunctions(MainWindow):
             
     def refreshDBwithanomalies(self):
         try:
-            global ReflexConn
+            # global ReflexConn
             ReflexConn = pyodbc.connect(
                 'DRIVER={iSeries Access ODBC Driver};'
                 f'SYSTEM=TDCRFX52;'
-                f'UID={Settings.REFUSER};' # to replace with inputs 
-                f'PWD={Settings.REFPWD}'  # Remplace par ton mot de passe
+                f'UID={User.REFUSER};' # to replace with inputs 
+                f'PWD={User.REFPWD}'  # Remplace par ton mot de passe
             )
-            global ReflexCursor
+            # global ReflexCursor
             ReflexCursor = ReflexConn.cursor()
             # Fetch data from ReflexCursor
             ReflexCursor.execute(Settings.PICK_ANOMALIES)

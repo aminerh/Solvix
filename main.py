@@ -1,9 +1,3 @@
-# from queries import * 
-
-# if __name__ == "__main__":
-#     # refreshDBwithanomalies()
-#     commande_relance("UcLnPXNvm","init state","wave done","stock dispo commande relancé")
-
 # SQL query for fetching data
 import psycopg2
 from psycopg2 import sql
@@ -69,7 +63,7 @@ class MainWindow(QMainWindow):
         # LEFT MENUS
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_widgets.clicked.connect(self.buttonClick)
-        widgets.btn_new.clicked.connect(self.buttonClick)
+        widgets.btn_surplus.clicked.connect(self.buttonClick)
         widgets.btn_login.clicked.connect(self.buttonClick)
 
         # login funtion to btn
@@ -146,6 +140,12 @@ class MainWindow(QMainWindow):
             UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
 
+         # SHOW NEW PAGE
+        if btnName == "btn_surplus":
+            # print("Save BTN clicked!")
+            widgets.stackedWidget.setCurrentWidget(widgets.surplus) # SET PAGE
+            UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
       
 
         # PRINT BTN NAME
@@ -178,8 +178,8 @@ class MainWindow(QMainWindow):
 
         username = widgets.username.text()
         password = widgets.password.text()
-        Settings.REFUSER=username
-        Settings.REFPWD=password
+        User.REFUSER=username
+        User.REFPWD=password
         if len(username) != 8:
             QMessageBox.warning(self, "Erreur", "R520 ou mot de passe incorrecte: " + str(e))
             return 
@@ -197,8 +197,12 @@ class MainWindow(QMainWindow):
                 QMessageBox.information(self, "Succès", "Connexion réussie !")
                 widgets.stackedWidget.setCurrentWidget(widgets.home)
                 self.GetPickAnomalies()
+                UIFunctions.getuserinfo(self)
+                widgets.UserInfo.setText(User.REFFULLNAME)
+
             except pyodbc.Error as e:
                 QMessageBox.warning(self, "Erreur", "Connexion échouée: " + str(e))
+            
 
     def GetPickAnomalies(self):
        
@@ -235,8 +239,9 @@ class MainWindow(QMainWindow):
         if btnName == "btn_logout":
             widgets.username.setText("")
             widgets.password.setText("")
-            Settings.REFUSER=''
-            Settings.REFPWD=''
+            User.REFUSER=''
+            User.REFPWD=''
+            User.REFFULLNAME=''
             widgets.PickAnomalies.clear()
             widgets.stackedWidget.setCurrentWidget(widgets.login)
 
@@ -253,4 +258,4 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

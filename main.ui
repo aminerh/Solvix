@@ -722,6 +722,12 @@ Button */
           </item>
           <item>
            <widget class="QFrame" name="leftMenuFrame">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>900</height>
+             </size>
+            </property>
             <property name="frameShape">
              <enum>QFrame::Shape::NoFrame</enum>
             </property>
@@ -874,42 +880,6 @@ Button */
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="btn_new">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>45</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
-                    <italic>false</italic>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="layoutDirection">
-                   <enum>Qt::LayoutDirection::LeftToRight</enum>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-file.png);</string>
-                  </property>
-                  <property name="text">
-                   <string>New</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
                  <widget class="QPushButton" name="btn_widgets">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -981,35 +951,24 @@ Button */
                   </property>
                  </widget>
                 </item>
-               </layout>
-              </widget>
-             </item>
-             <item alignment="Qt::AlignmentFlag::AlignBottom">
-              <widget class="QFrame" name="bottomMenu">
-               <property name="frameShape">
-                <enum>QFrame::Shape::NoFrame</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Shadow::Raised</enum>
-               </property>
-               <layout class="QVBoxLayout" name="verticalLayout_9">
-                <property name="spacing">
-                 <number>0</number>
-                </property>
-                <property name="leftMargin">
-                 <number>0</number>
-                </property>
-                <property name="topMargin">
-                 <number>0</number>
-                </property>
-                <property name="rightMargin">
-                 <number>0</number>
-                </property>
-                <property name="bottomMargin">
-                 <number>0</number>
-                </property>
                 <item>
-                 <widget class="QPushButton" name="toggleLeftBox">
+                 <widget class="QPushButton" name="pushButton_2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-truck.png)</string>
+                  </property>
+                  <property name="text">
+                   <string>Hopital</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_surplus">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -1037,10 +996,10 @@ Button */
                    <enum>Qt::LayoutDirection::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/icon_settings.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-library-add.png)</string>
                   </property>
                   <property name="text">
-                   <string>Left Box</string>
+                   <string>Surplus</string>
                   </property>
                  </widget>
                 </item>
@@ -1170,6 +1129,16 @@ Button */
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="UserInfo">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                   </property>
                  </widget>
                 </item>
@@ -1442,7 +1411,7 @@ Button */
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>3</number>
                      </property>
                      <widget class="QWidget" name="login">
                       <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="0">
@@ -2494,19 +2463,244 @@ background-size: cover;</string>
                        </item>
                       </layout>
                      </widget>
-                     <widget class="QWidget" name="new_page">
+                     <widget class="QWidget" name="surplus">
                       <property name="layoutDirection">
                        <enum>Qt::LayoutDirection::RightToLeft</enum>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_20">
                        <item>
-                        <widget class="QLabel" name="label">
-                         <property name="text">
-                          <string>NEW PAGE TEST</string>
+                        <widget class="QFrame" name="frame_3">
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>60</height>
+                          </size>
                          </property>
-                         <property name="alignment">
-                          <set>Qt::AlignmentFlag::AlignCenter</set>
+                         <property name="frameShape">
+                          <enum>QFrame::Shape::StyledPanel</enum>
                          </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Shadow::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_5">
+                          <item>
+                           <widget class="QLabel" name="label">
+                            <property name="styleSheet">
+                             <string notr="true">font-size: 30px; /* Adjust as needed */
+ont-weight: bold;
+letter-spacing: 2px; /* Spacing between letters */
+text-transform: uppercase; /* All caps */
+font-family: 'Arial', sans-serif;
+color: #ff6600;</string>
+                            </property>
+                            <property name="text">
+                             <string>Ajouter un nouveau Surplus</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignmentFlag::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_2">
+                         <property name="frameShape">
+                          <enum>QFrame::Shape::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Shadow::Raised</enum>
+                         </property>
+                         <layout class="QGridLayout" name="gridLayout_4">
+                          <item row="0" column="3" alignment="Qt::AlignmentFlag::AlignHCenter">
+                           <widget class="QLineEdit" name="Asin">
+                            <property name="minimumSize">
+                             <size>
+                              <width>350</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>120</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(33, 37, 43);</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="placeholderText">
+                             <string>ASIN</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="3" alignment="Qt::AlignmentFlag::AlignHCenter">
+                           <widget class="QLineEdit" name="Mission">
+                            <property name="minimumSize">
+                             <size>
+                              <width>350</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>120</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(33, 37, 43);</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="placeholderText">
+                             <string>Mission</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+                           <widget class="QComboBox" name="comboBox_2">
+                            <property name="minimumSize">
+                             <size>
+                              <width>350</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>120</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(33, 37, 43);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>Emp Hospital</string>
+                            </property>
+                            <item>
+                             <property name="text">
+                              <string>HOPI.001 00 A</string>
+                             </property>
+                            </item>
+                           </widget>
+                          </item>
+                          <item row="3" column="3" alignment="Qt::AlignmentFlag::AlignHCenter">
+                           <widget class="QLineEdit" name="username_4">
+                            <property name="minimumSize">
+                             <size>
+                              <width>350</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>120</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(33, 37, 43);</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="placeholderText">
+                             <string>Emp inital ou Chemin picking</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+                           <widget class="QLineEdit" name="lineEdit_2">
+                            <property name="minimumSize">
+                             <size>
+                              <width>350</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>120</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(33, 37, 43);</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="placeholderText">
+                             <string>User Picking R520</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+                           <widget class="QLineEdit" name="lineEdit_3">
+                            <property name="minimumSize">
+                             <size>
+                              <width>350</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>120</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(33, 37, 43);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>Quantité</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_4">
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>60</height>
+                          </size>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::Shape::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Shadow::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_9">
+                          <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
+                           <widget class="QPushButton" name="pushButton_3">
+                            <property name="minimumSize">
+                             <size>
+                              <width>150</width>
+                              <height>40</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(52, 59, 72);</string>
+                            </property>
+                            <property name="text">
+                             <string>Enregistrer </string>
+                            </property>
+                            <property name="icon">
+                             <iconset resource="resources.qrc">
+                              <normaloff>:/icons/images/icons/cil-save.png</normaloff>:/icons/images/icons/cil-save.png</iconset>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
                         </widget>
                        </item>
                       </layout>

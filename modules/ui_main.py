@@ -22,7 +22,7 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QScrollArea, QScrollBar, QSizePolicy, QSlider,
     QStackedWidget, QTableWidget, QTableWidgetItem, QVBoxLayout,
     QWidget)
-import modules.resources_rc as resources_rc
+import resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -86,7 +86,7 @@ class Ui_MainWindow(object):
 "	background-repeat: no-repeat;\n"
 "}\n"
 "#titleLeftApp { font: 63 12pt \"Segoe UI Semibold\"; }\n"
-"#titleLeftDescription { font: 8pt \"Segoe UI\"; color: rgb(189, 147, 249); }\n"
+"#titleLeftDescription { font: 8pt \"Segoe UI\"; color: rgb(243,158,78); }\n"
 "\n"
 "/* MENUS */\n"
 "#topMenu .QPushButton {	\n"
@@ -116,10 +116,10 @@ class Ui_MainWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#bottomMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(229, 119, 16);\n"
 "}\n"
 "#bottomMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
+"	background-color: rgb(243,158,78);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "#leftMenuFrame{\n"
@@ -138,11 +138,10 @@ class Ui_MainWindow(object):
 "	color: rgb(113, 126, 149);\n"
 "}\n"
 "#toggleButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(229, 119, 16);\n"
 "}\n"
 "#toggleButton:pressed {\n"
-"	background-color: rgb"
-                        "(189, 147, 249);\n"
+"	background-color: rgb(243, 158, 78);\n"
 "}\n"
 "\n"
 "/* Title Menu */\n"
@@ -155,7 +154,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(44, 49, 58);\n"
 "}\n"
 "#extraTopBg{	\n"
-"	background-color: rgb(189, 147, 249)\n"
+"	background-color: rgb(243,158,78)\n"
 "}\n"
 "\n"
 "/* Icon */\n"
@@ -170,13 +169,12 @@ class Ui_MainWindow(object):
 "\n"
 "/* Btn Close */\n"
 "#extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-"#extraCloseColumnBtn:hover { background-color: rgb(196, 161, 249); border-style: solid; border-radius: 4px; }\n"
-"#extraCloseColumnBtn:pressed { background-color: rgb(180, 141, 238); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:hover { background-color: rgb(229, 119, 16); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:pressed { background-color: rgb(243, 158, 78); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Extra Content */\n"
 "#extraContent{\n"
-"	borde"
-                        "r-top: 3px solid rgb(40, 44, 52);\n"
+"	border-top: 3px solid rgb(229, 119, 16);\n"
 "}\n"
 "\n"
 "/* Extra Top Menus */\n"
@@ -190,10 +188,10 @@ class Ui_MainWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#extraTopMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(229, 119, 16);\n"
 "}\n"
 "#extraTopMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
+"	background-color: rgb(243, 158, 78);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
@@ -208,13 +206,13 @@ class Ui_MainWindow(object):
 "\n"
 "/* Top Buttons */\n"
 "#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-"#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-st"
+"#rightButtons .QPushButton:hover { background-color: rgb(229, 119, 16); border-st"
                         "yle: solid; border-radius: 4px; }\n"
-"#rightButtons .QPushButton:pressed { background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; }\n"
+"#rightButtons .QPushButton:pressed { background-color: rgb(243, 158, 78); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Theme Settings */\n"
 "#extraRightBox { background-color: rgb(44, 49, 58); }\n"
-"#themeSettingsTopDetail { background-color: rgb(189, 147, 249); }\n"
+"#themeSettingsTopDetail { background-color: rgb(243,158,78); }\n"
 "\n"
 "/* Bottom Bar */\n"
 "#bottomBar { background-color: rgb(44, 49, 58); }\n"
@@ -232,10 +230,10 @@ class Ui_MainWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#contentSettings .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(229, 119, 16);\n"
 "}\n"
 "#contentSettings .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
+"	background-color: rgb(243, 158, 78);\n"
 "	color: rg"
                         "b(255, 255, 255);\n"
 "}\n"
@@ -256,7 +254,7 @@ class Ui_MainWindow(object):
 "	gridline-color: rgb(44, 49, 60);\n"
 "}\n"
 "QTableWidget::item:selected{\n"
-"	background-color: rgb(189, 147, 249);\n"
+"	background-color: rgb(243,158,78);\n"
 "}\n"
 "QHeaderView::section{\n"
 "	background-color: rgb(33, 37, 43);\n"
@@ -333,7 +331,7 @@ class Ui_MainWindow(object):
 "	border-radius: 0px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
-"    background: rgb(189, 147, 249);\n"
+"    background: rgb(243,158,78);\n"
 "    min-width: 25px;\n"
 "	border-radius: 4px\n"
 "}\n"
@@ -372,7 +370,7 @@ class Ui_MainWindow(object):
 "	border-radius: 0px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
-"	background: rgb(189, 147, 249);\n"
+"	background: rgb(243,158,78);\n"
 "    min-height: 25px;\n"
 "	border-radius: 4px\n"
 " }\n"
@@ -449,7 +447,7 @@ class Ui_MainWindow(object):
 "	padding-left: 10px;\n"
 "}\n"
 "QComboBox:hover{\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
+"	border: 2px solid rgb(229, 119, 16);\n"
 "}\n"
 "QComboBox::drop-down {\n"
 "	subcontrol-origin: padding;\n"
@@ -484,7 +482,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:horizontal {\n"
-"    background-color: rgb(189, 147, 249);\n"
+"    background-color: rgb(243,158,78);\n"
 "    border: none;\n"
 "    h"
                         "eight: 10px;\n"
@@ -496,7 +494,7 @@ class Ui_MainWindow(object):
 "    background-color: rgb(195, 155, 255);\n"
 "}\n"
 "QSlider::handle:horizontal:pressed {\n"
-"    background-color: rgb(255, 121, 198);\n"
+"    background-color:rgb(243, 158, 78);\n"
 "}\n"
 "\n"
 "QSlider::groove:vertical {\n"
@@ -509,7 +507,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:vertical {\n"
-"    background-color: rgb(189, 147, 249);\n"
+"    background-color: rgb(243,158,78);\n"
 "	border: none;\n"
 "    height: 10px;\n"
 "    width: 10px;\n"
@@ -534,10 +532,10 @@ class Ui_MainWindow(object):
 "}\n"
 "QCommandLinkButton:hover {	\n"
 "	color: rgb(255, 170, 255);\n"
-"	background-color: rgb(44, 49, 60);\n"
+"	background-color: rgb(229, 119, 16);\n"
 "}\n"
 "QCommandLinkButton:pressed {	\n"
-"	color: rgb(189, 147, 249);\n"
+"	color: rgb(243,158,78);\n"
 "	background-color: rgb(52, 58, 71);\n"
 "}\n"
 "\n"
@@ -549,11 +547,11 @@ class Ui_MainWindow(object):
 "	background-color: rgb(52, 59, 72);\n"
 "}\n"
 "#pagesContainer QPushButton:hover {\n"
-"	background-color: rgb(57, 65, 80);\n"
+"	background-color: rgb(229, 119, 16);\n"
 "	border: 2px solid rgb(61, 70, 86);\n"
 "}\n"
 "#pagesContainer QPushButton:pressed {	\n"
-"	background-color: rgb(35, 40, 49);\n"
+"	background-color: rgb(243, 158, 78);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}\n"
 "\n"
@@ -619,6 +617,7 @@ class Ui_MainWindow(object):
 
         self.leftMenuFrame = QFrame(self.leftMenuBg)
         self.leftMenuFrame.setObjectName(u"leftMenuFrame")
+        self.leftMenuFrame.setMinimumSize(QSize(0, 900))
         self.leftMenuFrame.setFrameShape(QFrame.Shape.NoFrame)
         self.leftMenuFrame.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalMenuLayout = QVBoxLayout(self.leftMenuFrame)
@@ -672,18 +671,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_home)
 
-        self.btn_new = QPushButton(self.topMenu)
-        self.btn_new.setObjectName(u"btn_new")
-        sizePolicy.setHeightForWidth(self.btn_new.sizePolicy().hasHeightForWidth())
-        self.btn_new.setSizePolicy(sizePolicy)
-        self.btn_new.setMinimumSize(QSize(0, 45))
-        self.btn_new.setFont(font)
-        self.btn_new.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.btn_new.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.btn_new.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-file.png);")
-
-        self.verticalLayout_8.addWidget(self.btn_new)
-
         self.btn_widgets = QPushButton(self.topMenu)
         self.btn_widgets.setObjectName(u"btn_widgets")
         sizePolicy.setHeightForWidth(self.btn_widgets.sizePolicy().hasHeightForWidth())
@@ -708,31 +695,27 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_login)
 
+        self.pushButton_2 = QPushButton(self.topMenu)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setMinimumSize(QSize(0, 45))
+        self.pushButton_2.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-truck.png)")
+
+        self.verticalLayout_8.addWidget(self.pushButton_2)
+
+        self.btn_surplus = QPushButton(self.topMenu)
+        self.btn_surplus.setObjectName(u"btn_surplus")
+        sizePolicy.setHeightForWidth(self.btn_surplus.sizePolicy().hasHeightForWidth())
+        self.btn_surplus.setSizePolicy(sizePolicy)
+        self.btn_surplus.setMinimumSize(QSize(0, 45))
+        self.btn_surplus.setFont(font)
+        self.btn_surplus.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.btn_surplus.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.btn_surplus.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-library-add.png)")
+
+        self.verticalLayout_8.addWidget(self.btn_surplus)
+
 
         self.verticalMenuLayout.addWidget(self.topMenu, 0, Qt.AlignmentFlag.AlignTop)
-
-        self.bottomMenu = QFrame(self.leftMenuFrame)
-        self.bottomMenu.setObjectName(u"bottomMenu")
-        self.bottomMenu.setFrameShape(QFrame.Shape.NoFrame)
-        self.bottomMenu.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_9 = QVBoxLayout(self.bottomMenu)
-        self.verticalLayout_9.setSpacing(0)
-        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
-        # self.toggleLeftBox = QPushButton(self.bottomMenu)
-        # self.toggleLeftBox.setObjectName(u"toggleLeftBox")
-        # sizePolicy.setHeightForWidth(self.toggleLeftBox.sizePolicy().hasHeightForWidth())
-        # self.toggleLeftBox.setSizePolicy(sizePolicy)
-        # self.toggleLeftBox.setMinimumSize(QSize(0, 45))
-        # self.toggleLeftBox.setFont(font)
-        # self.toggleLeftBox.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        # self.toggleLeftBox.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        # self.toggleLeftBox.setStyleSheet(u"background-image: url(:/icons/images/icons/icon_settings.png);")
-
-        # self.verticalLayout_9.addWidget(self.toggleLeftBox)
-
-
-        self.verticalMenuLayout.addWidget(self.bottomMenu, 0, Qt.AlignmentFlag.AlignBottom)
 
 
         self.verticalLayout_3.addWidget(self.leftMenuFrame)
@@ -783,6 +766,12 @@ class Ui_MainWindow(object):
         self.titleRightInfo.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.horizontalLayout_3.addWidget(self.titleRightInfo)
+
+        self.UserInfo = QLabel(self.leftBox)
+        self.UserInfo.setObjectName(u"UserInfo")
+        self.UserInfo.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+
+        self.horizontalLayout_3.addWidget(self.UserInfo)
 
 
         self.horizontalLayout.addWidget(self.leftBox)
@@ -1316,18 +1305,265 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.row_3)
 
         self.stackedWidget.addWidget(self.widgets)
-        self.new_page = QWidget()
-        self.new_page.setObjectName(u"new_page")
-        self.new_page.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
-        self.verticalLayout_20 = QVBoxLayout(self.new_page)
+        self.surplus = QWidget()
+        self.surplus.setObjectName(u"surplus")
+        self.surplus.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
+        self.verticalLayout_20 = QVBoxLayout(self.surplus)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
-        self.label = QLabel(self.new_page)
+        self.frame_3 = QFrame(self.surplus)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setMaximumSize(QSize(16777215, 60))
+        self.frame_3.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.frame_3)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.label = QLabel(self.frame_3)
         self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"font-size: 40px; /* Adjust as needed */\n"
+"font-weight: bold;\n"
+"letter-spacing: 2px; /* Spacing between letters */\n"
+"text-transform: uppercase; /* All caps */\n"
+"font-family: 'Arial', sans-serif;\n"
+"color: #ff6600;")
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.verticalLayout_20.addWidget(self.label)
+        self.verticalLayout_5.addWidget(self.label)
 
-        self.stackedWidget.addWidget(self.new_page)
+
+        self.verticalLayout_20.addWidget(self.frame_3)
+
+        self.frame_2 = QFrame(self.surplus)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
+        self.gridLayout_4 = QGridLayout(self.frame_2)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.Asin = QLineEdit(self.frame_2)
+        self.Asin.setObjectName(u"Asin")
+        self.Asin.setMinimumSize(QSize(350, 30))
+        self.Asin.setMaximumSize(QSize(120, 16777215))
+        self.Asin.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.gridLayout_4.addWidget(self.Asin, 0, 3, 1, 1, Qt.AlignmentFlag.AlignHCenter)
+
+        self.Mission = QLineEdit(self.frame_2)
+        self.Mission.setObjectName(u"Mission")
+        self.Mission.setMinimumSize(QSize(350, 30))
+        self.Mission.setMaximumSize(QSize(120, 16777215))
+        self.Mission.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.gridLayout_4.addWidget(self.Mission, 2, 3, 1, 1, Qt.AlignmentFlag.AlignHCenter)
+
+        self.hospital_emp = QComboBox(self.frame_2)
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("") 
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+        self.hospital_emp.addItem("")
+
+# /*********************************
+        self.hospital_emp.setObjectName(u"hospital_emp")
+        self.hospital_emp.setMinimumSize(QSize(350, 30))
+        self.hospital_emp.setMaximumSize(QSize(120, 16777215))
+        self.hospital_emp.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.gridLayout_4.addWidget(self.hospital_emp, 3, 1, 1, 1, Qt.AlignmentFlag.AlignHCenter)
+
+        self.username_4 = QLineEdit(self.frame_2)
+        self.username_4.setObjectName(u"username_4")
+        self.username_4.setMinimumSize(QSize(350, 30))
+        self.username_4.setMaximumSize(QSize(120, 16777215))
+        self.username_4.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.gridLayout_4.addWidget(self.username_4, 3, 3, 1, 1, Qt.AlignmentFlag.AlignHCenter)
+
+        self.lineEdit_2 = QLineEdit(self.frame_2)
+        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.lineEdit_2.setMinimumSize(QSize(350, 30))
+        self.lineEdit_2.setMaximumSize(QSize(120, 16777215))
+        self.lineEdit_2.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.gridLayout_4.addWidget(self.lineEdit_2, 0, 1, 1, 1, Qt.AlignmentFlag.AlignHCenter)
+
+        self.lineEdit_3 = QLineEdit(self.frame_2)
+        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.lineEdit_3.setMinimumSize(QSize(350, 30))
+        self.lineEdit_3.setMaximumSize(QSize(120, 16777215))
+        self.lineEdit_3.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.gridLayout_4.addWidget(self.lineEdit_3, 2, 1, 1, 1, Qt.AlignmentFlag.AlignHCenter)
+
+
+        self.verticalLayout_20.addWidget(self.frame_2)
+
+        self.frame_4 = QFrame(self.surplus)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setMaximumSize(QSize(16777215, 60))
+        self.frame_4.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_9 = QVBoxLayout(self.frame_4)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.pushButton_3 = QPushButton(self.frame_4)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setMinimumSize(QSize(150, 40))
+        self.pushButton_3.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        icon8 = QIcon()
+        icon8.addFile(u":/icons/images/icons/cil-save.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.pushButton_3.setIcon(icon8)
+
+        self.verticalLayout_9.addWidget(self.pushButton_3, 0, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignVCenter)
+
+
+        self.verticalLayout_20.addWidget(self.frame_4)
+
+        self.stackedWidget.addWidget(self.surplus)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
 
@@ -1469,7 +1705,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1477,15 +1713,16 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"Solvix", None))
-        self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"Your tool to solve", None))
+        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"PyDracula", None))
+        self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"Modern GUI / Flat Style", None))
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
-        self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Anomalies", None))
-        self.btn_new.setText(QCoreApplication.translate("MainWindow", u"New", None))
+        self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
         self.btn_login.setText(QCoreApplication.translate("MainWindow", u"Se connecter", None))
-        # self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Hopital", None))
+        self.btn_surplus.setText(QCoreApplication.translate("MainWindow", u"Surplus", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"Solvix", None))
+        self.UserInfo.setText("")
 #if QT_CONFIG(tooltip)
         self.settingsTopBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
 #endif // QT_CONFIG(tooltip)
@@ -1575,7 +1812,172 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Line", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
-        self.label.setText(QCoreApplication.translate("MainWindow", u"NEW PAGE TEST", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Ajouter un nouveau Surplus", None))
+        self.Asin.setText("")
+        self.Asin.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ASIN", None))
+        self.Mission.setText("")
+        self.Mission.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Mission", None))
+
+        self.hospital_emp.setItemText(0, QCoreApplication.translate("MainWindow", u"HOPI.001 00 A", None))
+        self.hospital_emp.setItemText(1, QCoreApplication.translate("MainWindow", u"HOPI.001 00 B", None))
+        self.hospital_emp.setItemText(2, QCoreApplication.translate("MainWindow", u"HOPI.001 00 C", None))
+        self.hospital_emp.setItemText(3, QCoreApplication.translate("MainWindow", u"HOPI.001 00 D", None))
+        self.hospital_emp.setItemText(4, QCoreApplication.translate("MainWindow", u"HOPI.001 05 A", None))
+        self.hospital_emp.setItemText(5, QCoreApplication.translate("MainWindow", u"HOPI.001 05 B", None))
+        self.hospital_emp.setItemText(6, QCoreApplication.translate("MainWindow", u"HOPI.001 05 C", None))
+        self.hospital_emp.setItemText(7, QCoreApplication.translate("MainWindow", u"HOPI.001 05 D", None))
+        self.hospital_emp.setItemText(8, QCoreApplication.translate("MainWindow", u"HOPI.001 10 A", None))
+        self.hospital_emp.setItemText(9, QCoreApplication.translate("MainWindow", u"HOPI.001 10 B", None))
+        self.hospital_emp.setItemText(10, QCoreApplication.translate("MainWindow", u"HOPI.001 10 C", None))
+        self.hospital_emp.setItemText(11, QCoreApplication.translate("MainWindow", u"HOPI.001 10 D", None))
+        self.hospital_emp.setItemText(12, QCoreApplication.translate("MainWindow", u"HOPI.001 15 A", None))
+        self.hospital_emp.setItemText(13, QCoreApplication.translate("MainWindow", u"HOPI.001 15 B", None))
+        self.hospital_emp.setItemText(14, QCoreApplication.translate("MainWindow", u"HOPI.001 15 C", None))
+        self.hospital_emp.setItemText(15, QCoreApplication.translate("MainWindow", u"HOPI.001 15 D", None))
+        self.hospital_emp.setItemText(16, QCoreApplication.translate("MainWindow", u"HOPI.001 20 A", None))
+        self.hospital_emp.setItemText(17, QCoreApplication.translate("MainWindow", u"HOPI.001 20 B", None))
+        self.hospital_emp.setItemText(18, QCoreApplication.translate("MainWindow", u"HOPI.001 20 C", None))
+        self.hospital_emp.setItemText(19, QCoreApplication.translate("MainWindow", u"HOPI.001 20 D", None))
+        self.hospital_emp.setItemText(20, QCoreApplication.translate("MainWindow", u"HOPI.001 25 A", None))
+        self.hospital_emp.setItemText(21, QCoreApplication.translate("MainWindow", u"HOPI.001 25 B", None))
+        self.hospital_emp.setItemText(22, QCoreApplication.translate("MainWindow", u"HOPI.001 25 C", None))
+        self.hospital_emp.setItemText(23, QCoreApplication.translate("MainWindow", u"HOPI.001 25 D", None))
+        self.hospital_emp.setItemText(24, QCoreApplication.translate("MainWindow", u"HOPI.001 30 A", None))
+        self.hospital_emp.setItemText(25, QCoreApplication.translate("MainWindow", u"HOPI.001 30 B", None))
+        self.hospital_emp.setItemText(26, QCoreApplication.translate("MainWindow", u"HOPI.001 30 C", None))
+        self.hospital_emp.setItemText(27, QCoreApplication.translate("MainWindow", u"HOPI.001 30 D", None))
+        self.hospital_emp.setItemText(28, QCoreApplication.translate("MainWindow", u"HOPI.001 35 A", None))
+        self.hospital_emp.setItemText(29, QCoreApplication.translate("MainWindow", u"HOPI.001 35 B", None))
+        self.hospital_emp.setItemText(30, QCoreApplication.translate("MainWindow", u"HOPI.001 35 C", None))
+        self.hospital_emp.setItemText(31, QCoreApplication.translate("MainWindow", u"HOPI.001 35 D", None))
+        self.hospital_emp.setItemText(32, QCoreApplication.translate("MainWindow", u"HOPI.002 30 A", None))
+        self.hospital_emp.setItemText(33, QCoreApplication.translate("MainWindow", u"HOPI.002 30 B", None))
+        self.hospital_emp.setItemText(34, QCoreApplication.translate("MainWindow", u"HOPI.002 30 C", None))
+        self.hospital_emp.setItemText(35, QCoreApplication.translate("MainWindow", u"HOPI.002 30 D", None))
+        self.hospital_emp.setItemText(36, QCoreApplication.translate("MainWindow", u"HOPI.002 35 A", None))
+        self.hospital_emp.setItemText(37, QCoreApplication.translate("MainWindow", u"HOPI.002 35 B", None))
+        self.hospital_emp.setItemText(38, QCoreApplication.translate("MainWindow", u"HOPI.002 35 C", None))
+        self.hospital_emp.setItemText(39, QCoreApplication.translate("MainWindow", u"HOPI.002 35 D", None))
+        self.hospital_emp.setItemText(40, QCoreApplication.translate("MainWindow", u"HOPI.003 30 A", None))
+        self.hospital_emp.setItemText(41, QCoreApplication.translate("MainWindow", u"HOPI.003 30 B", None))
+        self.hospital_emp.setItemText(42, QCoreApplication.translate("MainWindow", u"HOPI.003 30 C", None))
+        self.hospital_emp.setItemText(43, QCoreApplication.translate("MainWindow", u"HOPI.003 30 D", None))
+        self.hospital_emp.setItemText(44, QCoreApplication.translate("MainWindow", u"HOPI.003 35 A", None))
+        self.hospital_emp.setItemText(45, QCoreApplication.translate("MainWindow", u"HOPI.003 35 B", None))
+        self.hospital_emp.setItemText(46, QCoreApplication.translate("MainWindow", u"HOPI.003 35 C", None))
+        self.hospital_emp.setItemText(47, QCoreApplication.translate("MainWindow", u"HOPI.003 35 D", None))
+        self.hospital_emp.setItemText(48, QCoreApplication.translate("MainWindow", u"HOPI.001 40 A", None))
+        self.hospital_emp.setItemText(49, QCoreApplication.translate("MainWindow", u"HOPI.001 40 B", None))
+        self.hospital_emp.setItemText(50, QCoreApplication.translate("MainWindow", u"HOPI.001 40 C", None))
+        self.hospital_emp.setItemText(51, QCoreApplication.translate("MainWindow", u"HOPI.001 40 D", None))
+        self.hospital_emp.setItemText(52, QCoreApplication.translate("MainWindow", u"HOPI.001 45 A", None))
+        self.hospital_emp.setItemText(53, QCoreApplication.translate("MainWindow", u"HOPI.001 45 B", None))
+        self.hospital_emp.setItemText(54, QCoreApplication.translate("MainWindow", u"HOPI.001 45 C", None))
+        self.hospital_emp.setItemText(55, QCoreApplication.translate("MainWindow", u"HOPI.001 45 D", None))
+        self.hospital_emp.setItemText(56, QCoreApplication.translate("MainWindow", u"HOPI.002 00 A", None))
+        self.hospital_emp.setItemText(57, QCoreApplication.translate("MainWindow", u"HOPI.002 00 B", None))
+        self.hospital_emp.setItemText(58, QCoreApplication.translate("MainWindow", u"HOPI.002 00 C", None))
+        self.hospital_emp.setItemText(59, QCoreApplication.translate("MainWindow", u"HOPI.002 00 D", None))
+        self.hospital_emp.setItemText(60, QCoreApplication.translate("MainWindow", u"HOPI.002 05 A", None))
+        self.hospital_emp.setItemText(61, QCoreApplication.translate("MainWindow", u"HOPI.002 05 B", None))
+        self.hospital_emp.setItemText(62, QCoreApplication.translate("MainWindow", u"HOPI.002 05 C", None))
+        self.hospital_emp.setItemText(63, QCoreApplication.translate("MainWindow", u"HOPI.002 05 D", None))
+        self.hospital_emp.setItemText(64, QCoreApplication.translate("MainWindow", u"HOPI.002 10 A", None))
+        self.hospital_emp.setItemText(65, QCoreApplication.translate("MainWindow", u"HOPI.002 10 B", None))
+        self.hospital_emp.setItemText(66, QCoreApplication.translate("MainWindow", u"HOPI.002 10 C", None))
+        self.hospital_emp.setItemText(67, QCoreApplication.translate("MainWindow", u"HOPI.002 10 D", None))
+        self.hospital_emp.setItemText(68, QCoreApplication.translate("MainWindow", u"HOPI.002 15 A", None))
+        self.hospital_emp.setItemText(69, QCoreApplication.translate("MainWindow", u"HOPI.002 15 B", None))
+        self.hospital_emp.setItemText(70, QCoreApplication.translate("MainWindow", u"HOPI.002 15 C", None))
+        self.hospital_emp.setItemText(71, QCoreApplication.translate("MainWindow", u"HOPI.002 15 D", None))
+        self.hospital_emp.setItemText(72, QCoreApplication.translate("MainWindow", u"HOPI.002 20 A", None))
+        self.hospital_emp.setItemText(73, QCoreApplication.translate("MainWindow", u"HOPI.002 20 B", None))
+        self.hospital_emp.setItemText(74, QCoreApplication.translate("MainWindow", u"HOPI.002 20 C", None))
+        self.hospital_emp.setItemText(75, QCoreApplication.translate("MainWindow", u"HOPI.002 20 D", None))
+        self.hospital_emp.setItemText(76, QCoreApplication.translate("MainWindow", u"HOPI.002 25 A", None))
+        self.hospital_emp.setItemText(77, QCoreApplication.translate("MainWindow", u"HOPI.002 25 B", None))
+        self.hospital_emp.setItemText(78, QCoreApplication.translate("MainWindow", u"HOPI.002 25 C", None))
+        self.hospital_emp.setItemText(79, QCoreApplication.translate("MainWindow", u"HOPI.002 25 D", None))
+        self.hospital_emp.setItemText(80, QCoreApplication.translate("MainWindow", u"HOPI.002 40 A", None))
+        self.hospital_emp.setItemText(81, QCoreApplication.translate("MainWindow", u"HOPI.002 40 B", None))
+        self.hospital_emp.setItemText(82, QCoreApplication.translate("MainWindow", u"HOPI.002 40 C", None))
+        self.hospital_emp.setItemText(83, QCoreApplication.translate("MainWindow", u"HOPI.002 40 D", None))
+        self.hospital_emp.setItemText(84, QCoreApplication.translate("MainWindow", u"HOPI.002 45 A", None))
+        self.hospital_emp.setItemText(85, QCoreApplication.translate("MainWindow", u"HOPI.002 45 B", None))
+        self.hospital_emp.setItemText(86, QCoreApplication.translate("MainWindow", u"HOPI.002 45 C", None))
+        self.hospital_emp.setItemText(87, QCoreApplication.translate("MainWindow", u"HOPI.002 45 D", None))
+        self.hospital_emp.setItemText(88, QCoreApplication.translate("MainWindow", u"HOPI.003 00 A", None))
+        self.hospital_emp.setItemText(89, QCoreApplication.translate("MainWindow", u"HOPI.003 00 B", None))
+        self.hospital_emp.setItemText(90, QCoreApplication.translate("MainWindow", u"HOPI.003 00 C", None))
+        self.hospital_emp.setItemText(91, QCoreApplication.translate("MainWindow", u"HOPI.003 00 D", None))
+        self.hospital_emp.setItemText(92, QCoreApplication.translate("MainWindow", u"HOPI.003 05 A", None))
+        self.hospital_emp.setItemText(93, QCoreApplication.translate("MainWindow", u"HOPI.003 05 B", None))
+        self.hospital_emp.setItemText(94, QCoreApplication.translate("MainWindow", u"HOPI.003 05 C", None))
+        self.hospital_emp.setItemText(95, QCoreApplication.translate("MainWindow", u"HOPI.003 05 D", None))
+        self.hospital_emp.setItemText(96, QCoreApplication.translate("MainWindow", u"HOPI.003 10 A", None))
+        self.hospital_emp.setItemText(97, QCoreApplication.translate("MainWindow", u"HOPI.003 10 B", None))
+        self.hospital_emp.setItemText(98, QCoreApplication.translate("MainWindow", u"HOPI.003 10 C", None))
+        self.hospital_emp.setItemText(99, QCoreApplication.translate("MainWindow", u"HOPI.003 10 D", None))
+        self.hospital_emp.setItemText(100, QCoreApplication.translate("MainWindow", u"HOPI.003 15 A", None))
+        self.hospital_emp.setItemText(101, QCoreApplication.translate("MainWindow", u"HOPI.003 15 B", None))
+        self.hospital_emp.setItemText(102, QCoreApplication.translate("MainWindow", u"HOPI.003 15 C", None))
+        self.hospital_emp.setItemText(103, QCoreApplication.translate("MainWindow", u"HOPI.003 15 D", None))
+        self.hospital_emp.setItemText(104, QCoreApplication.translate("MainWindow", u"HOPI.003 20 A", None))
+        self.hospital_emp.setItemText(105, QCoreApplication.translate("MainWindow", u"HOPI.003 20 B", None))
+        self.hospital_emp.setItemText(106, QCoreApplication.translate("MainWindow", u"HOPI.003 20 C", None))
+        self.hospital_emp.setItemText(107, QCoreApplication.translate("MainWindow", u"HOPI.003 20 D", None))
+        self.hospital_emp.setItemText(108, QCoreApplication.translate("MainWindow", u"HOPI.003 25 A", None))
+        self.hospital_emp.setItemText(109, QCoreApplication.translate("MainWindow", u"HOPI.003 25 B", None))
+        self.hospital_emp.setItemText(110, QCoreApplication.translate("MainWindow", u"HOPI.003 25 C", None))
+        self.hospital_emp.setItemText(111, QCoreApplication.translate("MainWindow", u"HOPI.003 25 D", None))
+        self.hospital_emp.setItemText(112, QCoreApplication.translate("MainWindow", u"HOPI.003 40 A", None))
+        self.hospital_emp.setItemText(113, QCoreApplication.translate("MainWindow", u"HOPI.003 40 B", None))
+        self.hospital_emp.setItemText(114, QCoreApplication.translate("MainWindow", u"HOPI.003 40 C", None))
+        self.hospital_emp.setItemText(115, QCoreApplication.translate("MainWindow", u"HOPI.003 40 D", None))
+        self.hospital_emp.setItemText(116, QCoreApplication.translate("MainWindow", u"HOPI.003 45 A", None))
+        self.hospital_emp.setItemText(117, QCoreApplication.translate("MainWindow", u"HOPI.003 45 B", None))
+        self.hospital_emp.setItemText(118, QCoreApplication.translate("MainWindow", u"HOPI.003 45 C", None))
+        self.hospital_emp.setItemText(119, QCoreApplication.translate("MainWindow", u"HOPI.003 45 D", None))
+        self.hospital_emp.setItemText(120, QCoreApplication.translate("MainWindow", u"HOPI.004 00 A", None))
+        self.hospital_emp.setItemText(121, QCoreApplication.translate("MainWindow", u"HOPI.004 00 B", None))
+        self.hospital_emp.setItemText(122, QCoreApplication.translate("MainWindow", u"HOPI.004 00 C", None))
+        self.hospital_emp.setItemText(123, QCoreApplication.translate("MainWindow", u"HOPI.004 00 D", None))
+        self.hospital_emp.setItemText(124, QCoreApplication.translate("MainWindow", u"HOPI.004 05 A", None))
+        self.hospital_emp.setItemText(125, QCoreApplication.translate("MainWindow", u"HOPI.004 05 B", None))
+        self.hospital_emp.setItemText(126, QCoreApplication.translate("MainWindow", u"HOPI.004 05 C", None))
+        self.hospital_emp.setItemText(127, QCoreApplication.translate("MainWindow", u"HOPI.004 05 D", None))
+        self.hospital_emp.setItemText(128, QCoreApplication.translate("MainWindow", u"HOPI.004 10 A", None))
+        self.hospital_emp.setItemText(129, QCoreApplication.translate("MainWindow", u"HOPI.004 10 B", None))
+        self.hospital_emp.setItemText(130, QCoreApplication.translate("MainWindow", u"HOPI.004 10 C", None))
+        self.hospital_emp.setItemText(131, QCoreApplication.translate("MainWindow", u"HOPI.004 10 D", None))
+        self.hospital_emp.setItemText(132, QCoreApplication.translate("MainWindow", u"HOPI.004 15 A", None))
+        self.hospital_emp.setItemText(133, QCoreApplication.translate("MainWindow", u"HOPI.004 15 B", None))
+        self.hospital_emp.setItemText(134, QCoreApplication.translate("MainWindow", u"HOPI.004 15 C", None))
+        self.hospital_emp.setItemText(135, QCoreApplication.translate("MainWindow", u"HOPI.004 15 D", None))
+        self.hospital_emp.setItemText(136, QCoreApplication.translate("MainWindow", u"HOPI.004 20 A", None))
+        self.hospital_emp.setItemText(137, QCoreApplication.translate("MainWindow", u"HOPI.004 20 B", None))
+        self.hospital_emp.setItemText(138, QCoreApplication.translate("MainWindow", u"HOPI.004 20 C", None))
+        self.hospital_emp.setItemText(139, QCoreApplication.translate("MainWindow", u"HOPI.004 20 D", None))
+        self.hospital_emp.setItemText(140, QCoreApplication.translate("MainWindow", u"HOPI.004 25 A", None))
+        self.hospital_emp.setItemText(141, QCoreApplication.translate("MainWindow", u"HOPI.004 25 B", None))
+        self.hospital_emp.setItemText(142, QCoreApplication.translate("MainWindow", u"HOPI.004 25 C", None))
+        self.hospital_emp.setItemText(143, QCoreApplication.translate("MainWindow", u"HOPI.004 25 D", None))
+        self.hospital_emp.setItemText(144, QCoreApplication.translate("MainWindow", u"HOPI.004 40 A", None))
+        self.hospital_emp.setItemText(145, QCoreApplication.translate("MainWindow", u"HOPI.004 40 B", None))
+        self.hospital_emp.setItemText(146, QCoreApplication.translate("MainWindow", u"HOPI.004 40 C", None))
+        self.hospital_emp.setItemText(147, QCoreApplication.translate("MainWindow", u"HOPI.004 40 D", None))
+        self.hospital_emp.setItemText(148, QCoreApplication.translate("MainWindow", u"HOPI.004 45 A", None))
+        self.hospital_emp.setItemText(149, QCoreApplication.translate("MainWindow", u"HOPI.004 45 B", None))
+        self.hospital_emp.setItemText(150, QCoreApplication.translate("MainWindow", u"HOPI.004 45 C", None))
+        self.hospital_emp.setItemText(151, QCoreApplication.translate("MainWindow", u"HOPI.004 45 D", None))
+
+        self.hospital_emp.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Emp Hospital", None))
+        self.username_4.setText("")
+        self.username_4.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Emp inital ou Chemin picking", None))
+        self.lineEdit_2.setText("")
+        self.lineEdit_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"User Picking R520", None))
+        self.lineEdit_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Quantit\u00e9", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Enregistrer ", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
