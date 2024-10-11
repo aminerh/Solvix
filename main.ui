@@ -37,6 +37,11 @@ DARK THEME - DRACULA COLOR BASED
 
 ///////////////////////////////////////////////////////////////////////////////////////////////// */
 
+QDialog{
+background-color: #808080;
+color: #FFA500;
+border: 1px solid #333333;}
+
 QWidget{
 	color: rgb(221, 221, 221);
 	font: 10pt &quot;Segoe UI&quot;;
@@ -52,7 +57,7 @@ QToolTip {
 	background-position: left center;
     background-repeat: no-repeat;
 	border: none;
-	border-left: 2px solid rgb(255, 121, 198);
+	border-left: 2px solid RGB(243, 158, 78);
 	text-align: left;
 	padding-left: 8px;
 	margin: 0px;
@@ -77,7 +82,7 @@ Left Menu */
 	background-repeat: no-repeat;
 }
 #titleLeftApp { font: 63 12pt &quot;Segoe UI Semibold&quot;; }
-#titleLeftDescription { font: 8pt &quot;Segoe UI&quot;; color: rgb(189, 147, 249); }
+#titleLeftDescription { font: 8pt &quot;Segoe UI&quot;; color: rgb(243,158,78); }
 
 /* MENUS */
 #topMenu .QPushButton {	
@@ -93,7 +98,7 @@ Left Menu */
 	background-color: rgb(40, 44, 52);
 }
 #topMenu .QPushButton:pressed {	
-	background-color: rgb(189, 147, 249);
+	background-color: RGB(243, 158, 78);
 	color: rgb(255, 255, 255);
 }
 #bottomMenu .QPushButton {	
@@ -106,10 +111,10 @@ Left Menu */
 	padding-left: 44px;
 }
 #bottomMenu .QPushButton:hover {
-	background-color: rgb(40, 44, 52);
+	background-color: rgb(229, 119, 16);
 }
 #bottomMenu .QPushButton:pressed {	
-	background-color: rgb(189, 147, 249);
+	background-color: rgb(243,158,78);
 	color: rgb(255, 255, 255);
 }
 #leftMenuFrame{
@@ -125,13 +130,13 @@ Left Menu */
 	background-color: rgb(37, 41, 48);
 	text-align: left;
 	padding-left: 44px;
-	color: rgb(113, 126, 149);
+	color: white;
 }
 #toggleButton:hover {
-	background-color: rgb(40, 44, 52);
+	background-color: rgb(229, 119, 16)     ;
 }
 #toggleButton:pressed {
-	background-color: rgb(189, 147, 249);
+	background-color: rgb(243, 158, 78);
 }
 
 /* Title Menu */
@@ -144,7 +149,7 @@ Extra Tab */
 	background-color: rgb(44, 49, 58);
 }
 #extraTopBg{	
-	background-color: rgb(189, 147, 249)
+	background-color: rgb(243,158,78)
 }
 
 /* Icon */
@@ -159,12 +164,12 @@ Extra Tab */
 
 /* Btn Close */
 #extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }
-#extraCloseColumnBtn:hover { background-color: rgb(196, 161, 249); border-style: solid; border-radius: 4px; }
-#extraCloseColumnBtn:pressed { background-color: rgb(180, 141, 238); border-style: solid; border-radius: 4px; }
+#extraCloseColumnBtn:hover { background-color: rgb(229, 119, 16); border-style: solid; border-radius: 4px; }
+#extraCloseColumnBtn:pressed { background-color: rgb(243, 158, 78); border-style: solid; border-radius: 4px; }
 
 /* Extra Content */
 #extraContent{
-	border-top: 3px solid rgb(40, 44, 52);
+	border-top: 3px solid rgb(229, 119, 16);
 }
 
 /* Extra Top Menus */
@@ -178,10 +183,10 @@ background-position: left center;
 	padding-left: 44px;
 }
 #extraTopMenu .QPushButton:hover {
-	background-color: rgb(40, 44, 52);
+	background-color: rgb(229, 119, 16);
 }
 #extraTopMenu .QPushButton:pressed {	
-	background-color: rgb(189, 147, 249);
+	background-color: rgb(243, 158, 78);
 	color: rgb(255, 255, 255);
 }
 
@@ -196,16 +201,16 @@ Content App */
 
 /* Top Buttons */
 #rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }
-#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-style: solid; border-radius: 4px; }
-#rightButtons .QPushButton:pressed { background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; }
+#rightButtons .QPushButton:hover { background-color: rgb(229, 119, 16); border-style: solid; border-radius: 4px; }
+#rightButtons .QPushButton:pressed { background-color: RGB(229, 119, 16); border-style: solid; border-radius: 4px; }
 
 /* Theme Settings */
 #extraRightBox { background-color: rgb(44, 49, 58); }
-#themeSettingsTopDetail { background-color: rgb(189, 147, 249); }
+#themeSettingsTopDetail { background-color: rgb(243,158,78); }
 
 /* Bottom Bar */
 #bottomBar { background-color: rgb(44, 49, 58); }
-#bottomBar QLabel { font-size: 11px; color: rgb(113, 126, 149); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }
+#bottomBar .QLabel { font-size: 11px; color: rgb(229, 119, 16); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }
 
 /* CONTENT SETTINGS */
 /* MENUS */
@@ -219,10 +224,10 @@ Content App */
 	padding-left: 44px;
 }
 #contentSettings .QPushButton:hover {
-	background-color: rgb(40, 44, 52);
+	background-color: rgb(229, 119, 16);
 }
 #contentSettings .QPushButton:pressed {	
-	background-color: rgb(189, 147, 249);
+	background-color: rgb(243, 158, 78);
 	color: rgb(255, 255, 255);
 }
 
@@ -242,7 +247,7 @@ QTableWidget::item{
 	gridline-color: rgb(44, 49, 60);
 }
 QTableWidget::item:selected{
-	background-color: rgb(189, 147, 249);
+	background-color: rgb(243,158,78);
 }
 QHeaderView::section{
 	background-color: rgb(33, 37, 43);
@@ -276,13 +281,13 @@ QLineEdit {
 	border: 2px solid rgb(33, 37, 43);
 	padding-left: 10px;
 	selection-color: rgb(255, 255, 255);
-	selection-background-color: rgb(255, 121, 198);
+	selection-background-color: RGB(243, 158, 78);
 }
 QLineEdit:hover {
 	border: 2px solid rgb(64, 71, 88);
 }
 QLineEdit:focus {
-	border: 2px solid rgb(91, 101, 124);
+	border: 2px solid RGB(243, 158, 78);
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -292,7 +297,7 @@ QPlainTextEdit {
 	border-radius: 5px;
 	padding: 10px;
 	selection-color: rgb(255, 255, 255);
-	selection-background-color: rgb(255, 121, 198);
+	selection-background-color: RGB(243, 158, 78);
 }
 QPlainTextEdit  QScrollBar:vertical {
     width: 8px;
@@ -317,7 +322,7 @@ QScrollBar:horizontal {
 	border-radius: 0px;
 }
 QScrollBar::handle:horizontal {
-    background: rgb(189, 147, 249);
+    background: rgb(243,158,78);
     min-width: 25px;
 	border-radius: 4px
 }
@@ -330,6 +335,7 @@ QScrollBar::add-line:horizontal {
     subcontrol-position: right;
     subcontrol-origin: margin;
 }
+
 QScrollBar::sub-line:horizontal {
     border: none;
     background: rgb(55, 63, 77);
@@ -355,7 +361,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 	border-radius: 0px;
  }
  QScrollBar::handle:vertical {	
-	background: rgb(189, 147, 249);
+	background: rgb(243,158,78);
     min-height: 25px;
 	border-radius: 4px
  }
@@ -365,8 +371,8 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
      height: 20px;
 	border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
-     subcontrol-position: bottom;
-     subcontrol-origin: margin;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
  }
  QScrollBar::sub-line:vertical {
 	border: none;
@@ -416,7 +422,7 @@ QRadioButton::indicator:hover {
     border: 3px solid rgb(58, 66, 81);
 }
 QRadioButton::indicator:checked {
-    background: 3px solid rgb(94, 106, 130);
+    background: 3px solid RGB(243, 158, 78);
 	border: 3px solid rgb(52, 59, 72);	
 }
 
@@ -430,7 +436,7 @@ QComboBox{
 	padding-left: 10px;
 }
 QComboBox:hover{
-	border: 2px solid rgb(64, 71, 88);
+	border: 2px solid rgb(229, 119, 16);
 }
 QComboBox::drop-down {
 	subcontrol-origin: padding;
@@ -446,7 +452,7 @@ QComboBox::drop-down {
 	background-repeat: no-reperat;
  }
 QComboBox QAbstractItemView {
-	color: rgb(255, 121, 198);	
+	color: rgb(255, 255, 255);	
 	background-color: rgb(33, 37, 43);
 	padding: 10px;
 	selection-background-color: rgb(39, 44, 54);
@@ -464,7 +470,7 @@ QSlider::groove:horizontal:hover {
 	background-color: rgb(55, 62, 76);
 }
 QSlider::handle:horizontal {
-    background-color: rgb(189, 147, 249);
+    background-color: rgb(243,158,78);
     border: none;
     height: 10px;
     width: 10px;
@@ -472,10 +478,10 @@ QSlider::handle:horizontal {
 	border-radius: 5px;
 }
 QSlider::handle:horizontal:hover {
-    background-color: rgb(195, 155, 255);
+    background-color: RGB(243, 158, 78);
 }
 QSlider::handle:horizontal:pressed {
-    background-color: rgb(255, 121, 198);
+    background-color:rgb(243, 158, 78);
 }
 
 QSlider::groove:vertical {
@@ -488,7 +494,7 @@ QSlider::groove:vertical:hover {
 	background-color: rgb(55, 62, 76);
 }
 QSlider::handle:vertical {
-    background-color: rgb(189, 147, 249);
+    background-color: rgb(243,158,78);
 	border: none;
     height: 10px;
     width: 10px;
@@ -496,26 +502,26 @@ QSlider::handle:vertical {
 	border-radius: 5px;
 }
 QSlider::handle:vertical:hover {
-    background-color: rgb(195, 155, 255);
+    background-color: rgb(243,158,78);
 }
 QSlider::handle:vertical:pressed {
-    background-color: rgb(255, 121, 198);
+    background-color: rgb(243,158,78);
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 CommandLinkButton */
 QCommandLinkButton {	
-	color: rgb(255, 121, 198);
+	color: RGB(243, 158, 78);
 	border-radius: 5px;
 	padding: 5px;
 	color: rgb(255, 170, 255);
 }
 QCommandLinkButton:hover {	
 	color: rgb(255, 170, 255);
-	background-color: rgb(44, 49, 60);
+	background-color: rgb(229, 119, 16);
 }
 QCommandLinkButton:pressed {	
-	color: rgb(189, 147, 249);
+	color: rgb(243,158,78);
 	background-color: rgb(52, 58, 71);
 }
 
@@ -527,14 +533,13 @@ Button */
 	background-color: rgb(52, 59, 72);
 }
 #pagesContainer QPushButton:hover {
-	background-color: rgb(57, 65, 80);
+	background-color: rgb(229, 119, 16);
 	border: 2px solid rgb(61, 70, 86);
 }
 #pagesContainer QPushButton:pressed {	
-	background-color: rgb(35, 40, 49);
+	background-color: rgb(243, 158, 78);
 	border: 2px solid rgb(43, 50, 61);
 }
-
 </string>
    </property>
    <layout class="QVBoxLayout" name="appMargins">
@@ -916,43 +921,7 @@ Button */
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="btn_login">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>45</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
-                    <italic>false</italic>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="layoutDirection">
-                   <enum>Qt::LayoutDirection::LeftToRight</enum>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-user.png);</string>
-                  </property>
-                  <property name="text">
-                   <string>Exit</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton_2">
+                 <widget class="QPushButton" name="btn_pack_station">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
@@ -960,7 +929,7 @@ Button */
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-truck.png)</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-truck.png);</string>
                   </property>
                   <property name="text">
                    <string>Hopital</string>
@@ -996,10 +965,46 @@ Button */
                    <enum>Qt::LayoutDirection::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-library-add.png)</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-library-add.png);</string>
                   </property>
                   <property name="text">
                    <string>Surplus</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_login">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>45</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Segoe UI</family>
+                    <pointsize>10</pointsize>
+                    <italic>false</italic>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="layoutDirection">
+                   <enum>Qt::LayoutDirection::LeftToRight</enum>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-user.png);</string>
+                  </property>
+                  <property name="text">
+                   <string>Exit</string>
                   </property>
                  </widget>
                 </item>
@@ -1309,6 +1314,15 @@ Button */
                   <property name="toolTip">
                    <string>Close</string>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton:hover {
+	background-color: rgb(255, 0, 0);
+}
+QPushButton:pressed {	
+	background-color: rgb(255,0,0);
+	color: rgb(255, 255, 255);
+}</string>
+                  </property>
                   <property name="text">
                    <string/>
                   </property>
@@ -1432,6 +1446,528 @@ Button */
                        </property>
                        <item>
                         <widget class="QFrame" name="frame">
+                         <property name="styleSheet">
+                          <string notr="true">/* /////////////////////////////////////////////////////////////////////////////////////////////////
+
+SET APP STYLESHEET - FULL STYLES HERE
+DARK THEME - DRACULA COLOR BASED
+
+///////////////////////////////////////////////////////////////////////////////////////////////// */
+
+QDialog{
+background-color: #808080;
+color: #FFA500;
+border: 1px solid #333333;}
+
+QWidget{
+	color: rgb(221, 221, 221);
+	font: 10pt \Segoe UI\;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+Tooltip */
+QToolTip {
+	color: #ffffff;
+	background-color: rgba(33, 37, 43, 180);
+	border: 1px solid rgb(44, 49, 58);
+	background-image: none;
+	background-position: left center;
+    background-repeat: no-repeat;
+	border: none;
+	border-left: 2px solid RGB(243, 158, 78);
+	text-align: left;
+	padding-left: 8px;
+	margin: 0px;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+Bg App */
+#bgApp {	
+	background
+                        -color: rgb(40, 44, 52);
+	border: 1px solid rgb(44, 49, 58);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+Left Menu */
+#leftMenuBg {	
+	background-color: rgb(33, 37, 43);
+}
+#topLogo {
+	background-color: rgb(33, 37, 43);
+	background-image: url(:/images/images/images/SolvixIcon.png);
+	background-position: centered;
+	background-repeat: no-repeat;
+}
+#titleLeftApp { font: 63 12pt \Segoe UI Semibold\; }
+#titleLeftDescription { font: 8pt \Segoe UI\; color: rgb(243,158,78); }
+
+/* MENUS */
+#topMenu .QPushButton {	
+	background-position: left center;
+    background-repeat: no-repeat;
+	border: none;
+	border-left: 22px solid transparent;
+	background-color: transparent;
+	text-align: left;
+	padding-left: 44px;
+}
+#topMenu .QPushButton:hover {
+	background-color: rgb(40, 44, 52);
+}
+#topMenu .QPushButton:pressed {	
+	background-color: RGB(243, 158, 78);
+	color: rgb(255, 255, 255);
+}
+#bottomMenu .QPushButton {	
+	background-position: left center;
+    background-repeat: no-repeat;
+	border: none;
+	border-left: 20px solid transparent;
+	background-color:transparent;
+	text-align: left;
+	padding-left: 44px;
+}
+#bottomMenu .QPushButton:hover {
+	background-color: rgb(229, 119, 16);
+}
+#bottomMenu .QPushButton:pressed {	
+	background-color: rgb(243,158,78);
+	color: rgb(255, 255, 255);
+}
+#leftMenuFrame{
+	border-top: 3px solid rgb(44, 49, 58);
+}
+
+/* Toggle Button */
+#toggleButton {
+	background-position: left center;
+       background-repeat: no-repeat;
+	border: none;
+	border-left: 20px solid transparent;
+	background-color: rgb(37, 41, 48);
+	text-align: left;
+	padding-left: 44px;
+	color: white;
+}
+#toggleButton:hover {
+	background-color: rgb(229, 119, 16)     ;
+}
+#toggleButton:pressed {
+	background-color: rgb(243, 158, 78);
+}
+
+/* Title Menu */
+#titleRightInfo { padding-left: 10px; }
+
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+Extra Tab */
+#extraLeftBox {	
+	background-color: rgb(44, 49, 58);
+}
+#extraTopBg{	
+	background-color: rgb(243,158,78)
+}
+
+/* Icon */
+#extraIcon {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: url(:/icons/images/icons/icon_settings.png);
+}
+
+/* Label */
+#extraLabel { color: rgb(255, 255, 255); }
+
+/* Btn Close */
+#extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }
+#extraCloseColumnBtn:hover { background-color: rgb(229, 119, 16); border-style: solid; border-radius: 4px; }
+#extraCloseColumnBtn:pressed { background-color: rgb(243, 158, 78); border-style: solid; border-radius: 4px; }
+
+/* Extra Content */
+#extraContent{
+	border-top: 3px solid rgb(229, 119, 16);
+}
+
+/* Extra Top Menus */
+#extraTopMenu .QPushButton {
+background-position: left center;
+    background-repeat: no-repeat;
+	border: none;
+	border-left: 22px solid transparent;
+	background-color:transparent;
+	text-align: left;
+	padding-left: 44px;
+}
+#extraTopMenu .QPushButton:hover {
+	background-color: rgb(229, 119, 16);
+}
+#extraTopMenu .QPushButton:pressed {	
+	background-color: rgb(243, 158, 78);
+	color: rgb(255, 255, 255);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+Content App */
+#contentTopBg{	
+	background-color: rgb(33, 37, 43);
+}
+#contentBottom{
+	border-top: 3px solid rgb(44, 49, 58);
+}
+
+/* Top Buttons */
+#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }
+#rightButtons .QPushButton:hover { background-color: rgb(229, 119, 16); border-st
+                        yle: solid; border-radius: 4px; }
+#rightButtons .QPushButton:pressed { background-color: RGB(229, 119, 16); border-style: solid; border-radius: 4px; }
+
+/* Theme Settings */
+#extraRightBox { background-color: rgb(44, 49, 58); }
+#themeSettingsTopDetail { background-color: rgb(243,158,78); }
+
+/* Bottom Bar */
+#bottomBar { background-color: rgb(44, 49, 58); }
+#bottomBar QLabel { font-size: 11px; color: rgb(229, 119, 16); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }
+
+/* CONTENT SETTINGS */
+/* MENUS */
+#contentSettings .QPushButton {	
+	background-position: left center;
+    background-repeat: no-repeat;
+	border: none;
+	border-left: 22px solid transparent;
+	background-color:transparent;
+	text-align: left;
+	padding-left: 44px;
+}
+#contentSettings .QPushButton:hover {
+	background-color: rgb(229, 119, 16);
+}
+#contentSettings .QPushButton:pressed {	
+	background-color: rgb(243, 158, 78);
+	color: rg
+                        b(255, 255, 255);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+QTableWidget */
+QTableWidget {	
+	background-color: transparent;
+	padding: 10px;
+	border-radius: 5px;
+	gridline-color: rgb(44, 49, 58);
+	border-bottom: 1px solid rgb(44, 49, 60);
+}
+QTableWidget::item{
+	border-color: rgb(44, 49, 60);
+	padding-left: 5px;
+	padding-right: 5px;
+	gridline-color: rgb(44, 49, 60);
+}
+QTableWidget::item:selected{
+	background-color: rgb(243,158,78);
+}
+QHeaderView::section{
+	background-color: rgb(33, 37, 43);
+	max-width: 30px;
+	border: 1px solid rgb(44, 49, 58);
+	border-style: none;
+    border-bottom: 1px solid rgb(44, 49, 60);
+    border-right: 1px solid rgb(44, 49, 60);
+}
+QTableWidget::horizontalHeader {	
+	background-color: rgb(33, 37, 43);
+}
+QHeaderView::section:horizontal
+{
+    border: 1px solid rgb(33, 37, 43);
+	background-c
+                        olor: rgb(33, 37, 43);
+	padding: 3px;
+	border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+QHeaderView::section:vertical
+{
+    border: 1px solid rgb(44, 49, 60);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+LineEdit */
+QLineEdit {
+	background-color: rgb(33, 37, 43);
+	border-radius: 5px;
+	border: 2px solid rgb(33, 37, 43);
+	padding-left: 10px;
+	selection-color: rgb(255, 255, 255);
+	selection-background-color: RGB(243, 158, 78);
+}
+QLineEdit:hover {
+	border: 2px solid rgb(64, 71, 88);
+}
+QLineEdit:focus {
+	border: 2px solid RGB(243, 158, 78);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+PlainTextEdit */
+QPlainTextEdit {
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	padding: 10px;
+	selection-color: rgb(255, 255, 255);
+	selection-background-
+                        color: RGB(243, 158, 78);
+}
+QPlainTextEdit  QScrollBar:vertical {
+    width: 8px;
+ }
+QPlainTextEdit  QScrollBar:horizontal {
+    height: 8px;
+ }
+QPlainTextEdit:hover {
+	border: 2px solid rgb(64, 71, 88);
+}
+QPlainTextEdit:focus {
+	border: 2px solid rgb(91, 101, 124);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+ScrollBars */
+QScrollBar:horizontal {
+    border: none;
+    background: rgb(52, 59, 72);
+    height: 8px;
+    margin: 0px 21px 0 21px;
+	border-radius: 0px;
+}
+QScrollBar::handle:horizontal {
+    background: rgb(243,158,78);
+    min-width: 25px;
+	border-radius: 4px
+}
+QScrollBar::add-line:horizontal {
+    border: none;
+    background: rgb(55, 63, 77);
+    width: 20px;
+	border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+                        QScrollBar::sub-line:horizontal {
+    border: none;
+    background: rgb(55, 63, 77);
+    width: 20px;
+	border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal
+{
+     background: none;
+}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
+{
+     background: none;
+}
+ QScrollBar:vertical {
+	border: none;
+    background: rgb(52, 59, 72);
+    width: 8px;
+    margin: 21px 0 21px 0;
+	border-radius: 0px;
+ }
+ QScrollBar::handle:vertical {	
+	background: rgb(243,158,78);
+    min-height: 25px;
+	border-radius: 4px
+ }
+ QScrollBar::add-line:vertical {
+     border: none;
+    background: rgb(55, 63, 77);
+     height: 20px;
+	border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+     subcontrol-position: bottom;
+     su
+                        bcontrol-origin: margin;
+ }
+ QScrollBar::sub-line:vertical {
+	border: none;
+    background: rgb(55, 63, 77);
+     height: 20px;
+	border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+     background: none;
+ }
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: none;
+ }
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+CheckBox */
+QCheckBox::indicator {
+    border: 3px solid rgb(52, 59, 72);
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+    background: rgb(44, 49, 60);
+}
+QCheckBox::indicator:hover {
+    border: 3px solid rgb(58, 66, 81);
+}
+QCheckBox::indicator:checked {
+    background: 3px solid rgb(52, 59, 72);
+	border: 3px solid rgb(52, 59, 72);	
+	back
+                        ground-image: url(:/icons/images/icons/cil-check-alt.png);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+RadioButton */
+QRadioButton::indicator {
+    border: 3px solid rgb(52, 59, 72);
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+    background: rgb(44, 49, 60);
+}
+QRadioButton::indicator:hover {
+    border: 3px solid rgb(58, 66, 81);
+}
+QRadioButton::indicator:checked {
+    background: 3px solid RGB(243, 158, 78);
+	border: 3px solid rgb(52, 59, 72);	
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+ComboBox */
+QComboBox{
+	background-color: rgb(27, 29, 35);
+	border-radius: 5px;
+	border: 2px solid rgb(33, 37, 43);
+	padding: 5px;
+	padding-left: 10px;
+}
+QComboBox:hover{
+	border: 2px solid rgb(229, 119, 16);
+}
+QComboBox::drop-down {
+	subcontrol-origin: padding;
+	subcontrol-position: top right;
+	width: 25px; 
+	border-left-width: 3px;
+	border-left-color: rgba(39, 44, 54, 150);
+	border-left-style: solid;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;	
+	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);
+	background-position: center;
+	background-repeat: no-reperat;
+ }
+QComboBox QAbstractItemView {
+	color: rgb(255, 255, 255);	
+	background-color: rgb(33, 37, 43);
+	padding: 10px;
+	selection-background-color: rgb(39, 44, 54);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+Sliders */
+QSlider::groove:horizontal {
+    border-radius: 5px;
+    height: 10px;
+	margin: 0px;
+	background-color: rgb(52, 59, 72);
+}
+QSlider::groove:horizontal:hover {
+	background-color: rgb(55, 62, 76);
+}
+QSlider::handle:horizontal {
+    background-color: rgb(243,158,78);
+    border: none;
+    h
+                        eight: 10px;
+    width: 10px;
+    margin: 0px;
+	border-radius: 5px;
+}
+QSlider::handle:horizontal:hover {
+    background-color: RGB(243, 158, 78);
+}
+QSlider::handle:horizontal:pressed {
+    background-color:rgb(243, 158, 78);
+}
+
+QSlider::groove:vertical {
+    border-radius: 5px;
+    width: 10px;
+    margin: 0px;
+	background-color: rgb(52, 59, 72);
+}
+QSlider::groove:vertical:hover {
+	background-color: rgb(55, 62, 76);
+}
+QSlider::handle:vertical {
+    background-color: rgb(243,158,78);
+	border: none;
+    height: 10px;
+    width: 10px;
+    margin: 0px;
+	border-radius: 5px;
+}
+QSlider::handle:vertical:hover {
+    background-color: rgb(243,158,78);
+}
+QSlider::handle:vertical:pressed {
+    background-color: rgb(243,158,78);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+CommandLinkButton */
+QCommandLi
+                        nkButton {	
+	color: RGB(243, 158, 78);
+	border-radius: 5px;
+	padding: 5px;
+	color: rgb(255, 170, 255);
+}
+QCommandLinkButton:hover {	
+	color: rgb(255, 170, 255);
+	background-color: rgb(229, 119, 16);
+}
+QCommandLinkButton:pressed {	
+	color: rgb(243,158,78);
+	background-color: rgb(52, 58, 71);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////
+Button */
+#pagesContainer QPushButton {
+	border: 2px solid rgb(52, 59, 72);
+	border-radius: 5px;	
+	background-color: rgb(52, 59, 72);
+}
+#pagesContainer QPushButton:hover {
+	background-color: rgb(229, 119, 16);
+	border: 2px solid rgb(61, 70, 86);
+}
+#pagesContainer QPushButton:pressed {	
+	background-color: rgb(243, 158, 78);
+	border: 2px solid rgb(43, 50, 61);
+}
+</string>
+                         </property>
                          <property name="frameShape">
                           <enum>QFrame::Shape::StyledPanel</enum>
                          </property>
@@ -1454,8 +1990,7 @@ Button */
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">background :url(:/images/images/images/Solvix.png) no-repeat center;
-background-size: cover;</string>
+                             <string notr="true">background :url(:/images/images/images/Solvix.png) no-repeat center;</string>
                             </property>
                             <property name="text">
                              <string/>
@@ -2463,6 +2998,210 @@ background-size: cover;</string>
                        </item>
                       </layout>
                      </widget>
+                     <widget class="QWidget" name="packing_stations">
+                      <layout class="QVBoxLayout" name="verticalLayout_10">
+                       <item alignment="Qt::AlignmentFlag::AlignTop">
+                        <widget class="QFrame" name="frame_5">
+                         <property name="frameShape">
+                          <enum>QFrame::Shape::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Shadow::Raised</enum>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_8">
+                          <item>
+                           <widget class="QLineEdit" name="poste_search">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(33, 37, 43);</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>rechercher un asin ou un poste</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="search_by_poste">
+                            <property name="minimumSize">
+                             <size>
+                              <width>120</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(52, 59, 72);</string>
+                            </property>
+                            <property name="text">
+                             <string>Rechercher</string>
+                            </property>
+                            <property name="icon">
+                             <iconset resource="resources.qrc">
+                              <normaloff>:/icons/images/icons/cil-magnifying-glass.png</normaloff>:/icons/images/icons/cil-magnifying-glass.png</iconset>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="refresh_stations">
+                            <property name="minimumSize">
+                             <size>
+                              <width>120</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QPushButton:hover {
+	background-color: rgb(245,212, 160);
+}
+QPushButton {
+	background-color: rgb(244, 166, 86);
+}</string>
+                            </property>
+                            <property name="text">
+                             <string>rafraîchir</string>
+                            </property>
+                            <property name="icon">
+                             <iconset resource="resources.qrc">
+                              <normaloff>:/icons/images/icons/cil-reload.png</normaloff>:/icons/images/icons/cil-reload.png</iconset>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_6">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>10</height>
+                          </size>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::Shape::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Shadow::Raised</enum>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_10">
+                          <item>
+                           <widget class="QTableWidget" name="packing_status"/>
+                          </item>
+                          <item alignment="Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTop">
+                           <widget class="QFrame" name="frame_7">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>300</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>300</height>
+                             </size>
+                            </property>
+                            <property name="frameShape">
+                             <enum>QFrame::Shape::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Shadow::Raised</enum>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_11">
+                             <item alignment="Qt::AlignmentFlag::AlignVCenter">
+                              <widget class="QPushButton" name="btn_selectall">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>100</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>16777215</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background-color: rgb(52, 59, 72);</string>
+                               </property>
+                               <property name="text">
+                                <string>Tout selectionner</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item alignment="Qt::AlignmentFlag::AlignVCenter">
+                              <widget class="QPushButton" name="btn_deselectall">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>100</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background-color: rgb(52, 59, 72);</string>
+                               </property>
+                               <property name="text">
+                                <string>Tout deselectionner</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item alignment="Qt::AlignmentFlag::AlignVCenter">
+                              <widget class="QPushButton" name="btn_restocker_surplus">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>120</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>16777215</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background-color: rgb(52, 59, 72);</string>
+                               </property>
+                               <property name="text">
+                                <string>Déstocker</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item alignment="Qt::AlignmentFlag::AlignVCenter">
+                              <widget class="QPushButton" name="pushButton_2">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>120</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>16777215</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background-color: rgb(52, 59, 72);</string>
+                               </property>
+                               <property name="text">
+                                <string>Packer</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
                      <widget class="QWidget" name="surplus">
                       <property name="layoutDirection">
                        <enum>Qt::LayoutDirection::RightToLeft</enum>
@@ -2487,14 +3226,14 @@ background-size: cover;</string>
                            <widget class="QLabel" name="label">
                             <property name="styleSheet">
                              <string notr="true">font-size: 30px; /* Adjust as needed */
-ont-weight: bold;
+font-weight: bold;
 letter-spacing: 2px; /* Spacing between letters */
 text-transform: uppercase; /* All caps */
 font-family: 'Arial', sans-serif;
 color: #ff6600;</string>
                             </property>
                             <property name="text">
-                             <string>Ajouter un nouveau Surplus</string>
+                             <string>Ajouter un nouveau Surplus Manuellement</string>
                             </property>
                             <property name="alignment">
                              <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -2564,7 +3303,7 @@ color: #ff6600;</string>
                            </widget>
                           </item>
                           <item row="3" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-                           <widget class="QComboBox" name="comboBox_2">
+                           <widget class="QComboBox" name="hospital_emp">
                             <property name="minimumSize">
                              <size>
                               <width>350</width>
@@ -2591,7 +3330,7 @@ color: #ff6600;</string>
                            </widget>
                           </item>
                           <item row="3" column="3" alignment="Qt::AlignmentFlag::AlignHCenter">
-                           <widget class="QLineEdit" name="username_4">
+                           <widget class="QLineEdit" name="Emp_initial">
                             <property name="minimumSize">
                              <size>
                               <width>350</width>
@@ -2616,7 +3355,7 @@ color: #ff6600;</string>
                            </widget>
                           </item>
                           <item row="0" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-                           <widget class="QLineEdit" name="lineEdit_2">
+                           <widget class="QLineEdit" name="picking_user">
                             <property name="minimumSize">
                              <size>
                               <width>350</width>
@@ -2641,7 +3380,7 @@ color: #ff6600;</string>
                            </widget>
                           </item>
                           <item row="2" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-                           <widget class="QLineEdit" name="lineEdit_3">
+                           <widget class="QLineEdit" name="quantite">
                             <property name="minimumSize">
                              <size>
                               <width>350</width>
@@ -2681,7 +3420,7 @@ color: #ff6600;</string>
                          </property>
                          <layout class="QVBoxLayout" name="verticalLayout_9">
                           <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
-                           <widget class="QPushButton" name="pushButton_3">
+                           <widget class="QPushButton" name="new_surplus">
                             <property name="minimumSize">
                              <size>
                               <width>150</width>

@@ -83,7 +83,7 @@ class Settings():
     #  ' qty AS "Quantité sans prélèvement" ,
     #   npcmnp AS "Reason Code",
     
- 
+    SURPLUS= """ Select * from AMRFXDD.AISPCKP """
     PICK_ANOMALIES = """
     SELECT 
     oerodp AS "Commande",
@@ -136,6 +136,7 @@ class Settings():
         AND ORSLRR <> 'SUCCESS' 
         AND ORSTAT <>'Floor Denial' 
         AND ORSTAT <>'Cancelled'
+        AND ORSTAT <> 'Partially Shipped'
         WHERE p1cdpo = '001' 
         AND pecact = '001'
         GROUP BY pecdpo, pecact, penann, penpre, oerodp, peccpl, pecrgc, ORSTAT, OECCPL, ORWAVD, ORWAVT, ORLAUC, ORLAUE, 
@@ -187,3 +188,5 @@ class Settings():
     ORDER BY CPT,CPTTIM
 
     """ 
+
+

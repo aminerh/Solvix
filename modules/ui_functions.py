@@ -73,35 +73,6 @@ class UIFunctions(MainWindow):
             self.animation.setEasingCurve(QEasingCurve.InOutQuart)
             self.animation.start()
 
-    # TOGGLE LEFT BOX
-    # # ///////////////////////////////////////////////////////////////
-    # def toggleLeftBox(self, enable):
-    #     if enable:
-    #         # GET WIDTH
-    #         width = self.ui.extraLeftBox.width()
-    #         widthRightBox = self.ui.extraRightBox.width()
-    #         maxExtend = Settings.LEFT_BOX_WIDTH
-    #         color = Settings.BTN_LEFT_BOX_COLOR
-    #         standard = 0
-
-    #         # GET BTN STYLE
-    #         style = self.ui.toggleLeftBox.styleSheet()
-
-    #         # SET MAX WIDTH
-    #         if width == 0:
-    #             widthExtended = maxExtend
-    #             # SELECT BTN
-    #             self.ui.toggleLeftBox.setStyleSheet(style + color)
-    #             if widthRightBox != 0:
-    #                 style = self.ui.settingsTopBtn.styleSheet()
-    #                 self.ui.settingsTopBtn.setStyleSheet(style.replace(Settings.BTN_RIGHT_BOX_COLOR, ''))
-    #         else:
-    #             widthExtended = standard
-    #             # RESET BTN
-    #             self.ui.toggleLeftBox.setStyleSheet(style.replace(color, ''))
-                
-    #     UIFunctions.start_box_animation(self, width, widthRightBox, "left")
-
     # TOGGLE RIGHT BOX
     # ///////////////////////////////////////////////////////////////
     def toggleRightBox(self, enable):
@@ -258,6 +229,7 @@ class UIFunctions(MainWindow):
             self.top_grip.setGeometry(0, 0, self.width(), 10)
             self.bottom_grip.setGeometry(0, self.height() - 10, self.width(), 10)
 
+    # get user full name
     def getuserinfo(self):
         try:
             query = f"""select UTLUTI from AMAZONBD.hlutilp where UTCUTI = '{User.REFUSER}'"""
@@ -267,12 +239,12 @@ class UIFunctions(MainWindow):
         except Exception as error:
             print(f"Error while connecting to REFLEX: {error}")
         
-
+    # retreive data from database of anomalies table
     def getAnomalies(self):
         with self.SolvixConenctor.SolviXengine.connect() as connection:
             trans = connection.begin()
             try:
-                query = text("""SELECT anomalies.*,Case when hospital_location is null then 'non trouvé' else hospital_location end as "location hospital" FROM anomalies Left outer join hospital on "Asin"=asin;""")
+                query = text("""SELECT anomalies.*,"Date Declaration",Case when "POST" is null then 'non trouvé' else "POST" end as "POST avec Surplus" FROM anomalies Left outer join public."Surplus" on "ASIN"="Asin" order by "Date CPT","Heure CPT";""")
                 result = connection.execute(query)
                 records = result.fetchall()
                 columns = result.keys()
@@ -286,6 +258,7 @@ class UIFunctions(MainWindow):
                 print(f"Error during transaction: {e}")
                 return None
             
+    # refresh anomalies database based on reflex data 
     def refreshDBwithanomalies(self):
         try:
      
@@ -343,7 +316,112 @@ class UIFunctions(MainWindow):
         except Exception as e:
             print(f"Error: {e}")
 
+    # refresh surplus database based on reflex data
+    def refreshDBSurplus(self):
+        try:
+     
+            self.RefConenctor.ReflexCursor.execute(Settings.SURPLUS)
+            result = self.RefConenctor.ReflexCursor.fetchall()
 
+            # Get column headers
+            headers = [column[0] for column in self.RefConenctor.ReflexCursor.description]
+
+            # Clean up and convert the data into a DataFrame
+            data = [[str(item).strip() if item is not None else "" for item in row] for row in result]
+            df = pd.DataFrame(data, columns=headers)
+            # SolviXengine = create_engine(f'postgresql://Usolvix:1234@10.49.0.179:5432/Solvix')
+            
+            df['MISSION'] = df['SPAMIS'].astype(str) +'/'+ df['SPNMIS'].astype(str)
+      
+            df['Year'] = df['SPSSDC'].astype(str) + df['SPAADC'].astype(str)
+            df['SPHHDC'] = df['SPHHDC'].apply(lambda x: x.zfill(6))  # Ensure it has 6 characters
+            df['Hour'] = df['SPHHDC'].str[:2].astype(int)    # First two chars are hours
+            df['Minute'] = df['SPHHDC'].str[2:4].astype(int) # Next two chars are minutes
+            df['Second'] = df['SPHHDC'].str[4:6].astype(int) # Last two chars are seconds
+            # Step 5: Create the Datetime by combining Year, Month, Day, Hour, Minute, and Second
+            df['Date Declaration'] = pd.to_datetime(df[['Year', 'SPMMDC', 'SPJJDC', 'Hour', 'Minute', 'Second']]
+                                .rename(columns={'Year':'year', 'SPMMDC':'month', 'SPJJDC':'day',
+                                                 'Hour':'hour', 'Minute':'minute', 'Second':'second'}))
+            df =df.rename(columns={'SPNSUP':'SUPPORT','SPCART':'ASIN','SPNBAC':'TSX','SPQTSP':'QUANTITY','SPPOST':'POST','SPDPCK':'ID_PICK','SPNPAC':'ID_PACK','SPCEZM':'Emp_Org'})
+            df =df.drop(['SPSSDC','SPAADC','SPMMDC','SPJJDC','SPHHDC','Year','Hour','Minute','Second','SPAMIS','SPNMIS'], axis=1)
+  
+            # Start a connection and transaction
+            with self.SolvixConenctor.SolviXengine.connect() as connection:
+                # Start a transaction
+                trans = connection.begin()
+                try:
+                    # Step 1: Delete existing records from anomalies table
+                    delete_query = text("""DELETE FROM "Surplus";""")
+                    connection.execute(delete_query)
+                    print("Old records deleted from 'Surplus' table.")
+
+                    # Step 2: Insert the new data into the anomalies table
+                    df.to_sql('Surplus', self.SolvixConenctor.SolviXengine, if_exists='append', index=False)
+                    print("New data inserted successfully into 'Surplus' table.")
+
+                    for index, row in df.iterrows():
+                        datetime = row['Date Declaration']  # Assuming order_id is a column in your fetched data
+
+                        # Query to check if order_id exists in the order_log table
+                        check_query = text("""SELECT COUNT(*) FROM bdd_surplus WHERE "Date Declaration" = '"""+str(datetime)+"'")
+                        result = connection.execute(check_query).scalar()
+
+                        if result == 0:
+                            # Insert new log entry if order_id doesn't exist
+                            insert_query = text("""
+                               INSERT INTO public.bdd_surplus(
+                                "Date Declaration", "POST", "ASIN", "SUPPORT", "QUANTITY", "TSX", "MISSION", "ID_PICK", "ID_PACK", "Emp_Org")
+                                VALUES (:dateime, :post,:asin ,:support,:quantite,:tsx, :mission,:id_pick, :id_pack, :emp_org);
+                            """)
+                            # Define the parameters
+                            params = {
+                                'dateime': datetime,  # Example datetime value
+                                'post': row['POST'],            # Replace with actual post value
+                                'asin': row['ASIN'],                  # Replace with actual ASIN value
+                                'support': row['SUPPORT'],          # Replace with actual support type
+                                'quantite': row['QUANTITY'],                    # Replace with actual quantity
+                                'tsx': row['TSX'],                 # Replace with actual TSX value
+                                'mission': row['MISSION'],          # Replace with actual mission type
+                                'id_pick': row['ID_PICK'],                    # Replace with actual ID_PICK value
+                                'id_pack': row['ID_PACK'],                    # Replace with actual ID_PACK value
+                                'emp_org': row['Emp_Org']                # Replace with actual employee organization value
+                            }
+                            connection.execute(insert_query,params)
+                            print(f"New entry added to 'bdd_surplus' for datetime: {datetime}")
+
+                    # Commit the transaction
+                    trans.commit()
+                except Exception as e:
+                    # If any error occurs, rollback the transaction
+                    trans.rollback()
+                    print(f"Error during transaction: {e}")
+
+        except SQLAlchemyError as e:
+            print(f"Error executing SQL: {e}")
+        except Exception as e:
+            print(f"Error: {e}")
+
+    # retreive data from database of bdd_surplus table
+    def getSurplus(self):
+        with self.SolvixConenctor.SolviXengine.connect() as connection:
+            trans = connection.begin()
+            try:
+                query = text(""" SELECT "POST","ASIN","SUPPORT","QUANTITY" ,"TSX","MISSION", "ID_PICK" as "PICKEUR" ,"ID_PACK" as "PACKEUR" ,"Emp_Org","Date Declaration" ,state FROM  public.bdd_surplus WHERE (state = 0 or state =1) Order by "Date Declaration" DESC """)
+                result = connection.execute(query)
+                records = result.fetchall()
+                columns = result.keys()
+             
+                trans.commit()
+                # Convert the results to a DataFrame
+                df = pd.DataFrame(records, columns=columns)
+                return df
+            except Exception as e:
+                # If any error occurs, rollback the transaction
+                trans.rollback()
+                print(f"Error during transaction: {e}")
+                return None
+
+    #function to add manually a overage
     def addnewSurplus(self,Asin,picking_user,Mission,quantite,Emp_initial,hospital_emp) :
         with self.SolvixConenctor.SolviXengine.connect() as connection:
             # Start a transaction
@@ -362,11 +440,34 @@ class UIFunctions(MainWindow):
                 # If any error occurs, rollback the transaction
                 trans.rollback()
                 print(f"Error during transaction: {e}")
-
-
-
-
     
-    
+    def restockageSurplus(self,df):
+         # Start a connection and transaction
+        with self.SolvixConenctor.SolviXengine.connect() as connection:
+            # Start a transaction
+            trans = connection.begin()
+            try:
+                for index, row in df.iterrows():
+                    datetime = row['Date Declaration']  # Assuming order_id is a column in your fetched data
+
+                    # Query to check if order_id exists in the order_log table
+                    check_query = text("""SELECT COUNT(*) FROM bdd_surplus WHERE "Date Declaration" = '"""+str(datetime)+"'")
+                    result = connection.execute(check_query).scalar()
+
+                    if result == 1:
+                        # Insert new log entry if order_id doesn't exist
+                        update_query = text("""
+                            UPDATE public.bdd_surplus
+                            SET  state=2 ,id_ps_destockage = '"""+User.REFFULLNAME+"""'
+                            WHERE "Date Declaration" = '"""+str(datetime)+"'")
+                        connection.execute(update_query)
+                        print(f"an update been at 'bdd_surplus' for datetime: {datetime}")
+
+                # Commit the transaction
+                trans.commit()
+            except Exception as e:
+                # If any error occurs, rollback the transaction
+                trans.rollback()
+                print(f"Error during transaction: {e}")
     # ///////////////////////////////////////////////////////////////
     # END - GUI DEFINITIONS

@@ -58,9 +58,11 @@ class MainWindow(QMainWindow):
         widgets.btn_widgets.clicked.connect(self.buttonClick)
         widgets.btn_surplus.clicked.connect(self.buttonClick)
         widgets.btn_login.clicked.connect(self.buttonClick)
+        widgets.btn_pack_station.clicked.connect(self.buttonClick)
 
         # login funtion to btn
         widgets.login_button.clicked.connect(self.login)
+        
 
         #refresh function to btn
         widgets.refresh.clicked.connect(self.RefreshPickAnomalies)
@@ -71,14 +73,25 @@ class MainWindow(QMainWindow):
         # add new surplus 
         widgets.new_surplus.clicked.connect(self.new_surplus)
 
+        # refresh surplus      
+        widgets.refresh_stations.clicked.connect(self.refreshPackingStation)
 
+        # search in  surplus      
+        widgets.search_by_poste.clicked.connect(self.researchinBDD_surplus)
+        
 
-        #  to delete
-        # # EXTRA LEFT BOX
-        # def openCloseLeftBox():
-        #     UIFunctions.toggleLeftBox(self, True)
-        # widgets.toggleLeftBox.clicked.connect(openCloseLeftBox)
-        # widgets.extraCloseColumnBtn.clicked.connect(openCloseLeftBox)
+        #add function to print button   
+        widgets.btn_print.clicked.connect(self.printCurrentData)
+                
+        # select all in packing surplus        
+        widgets.btn_selectall.clicked.connect(self.buttonClick)
+        
+        # select all in packing surplus        
+        widgets.btn_deselectall.clicked.connect(self.buttonClick)
+
+         # select all in packing surplus        
+        widgets.btn_restocker_surplus.clicked.connect(self.buttonClick)
+     
 
         # EXTRA RIGHT BOX
         def openCloseRightBox():
@@ -89,20 +102,6 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         self.show()
 
-        # SET CUSTOM THEME
-        # ///////////////////////////////////////////////////////////////
-        # useCustomTheme = False
-        # themeFile = "themes\Solvix_light.qss"
-
-        # # SET THEME AND HACKS
-        # # to check this it s used for what   
-        # if useCustomTheme:
-        #     # LOAD AND APPLY STYLE
-        #     UIFunctions.theme(self, themeFile, True)
-
-        #     # SET HACKS
-        #     AppFunctions.setThemeHack(self)
-
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.login)
@@ -110,10 +109,8 @@ class MainWindow(QMainWindow):
         widgets.btn_home.setVisible(False)
         widgets.btn_surplus.setVisible(False)
         widgets.btn_widgets.setVisible(False)
-        widgets.pushButton_2.setVisible(False)
-        # widgets.btn_home.setEnabled(False)
-
-
+        widgets.btn_pack_station.setVisible(False)
+    
 
     # BUTTONS CLICK
     # Post here your functions for clicked buttons
@@ -151,11 +148,29 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(widgets.surplus) # SET PAGE
             UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
-      
 
-        # PRINT BTN NAME
-        print(f'Button "{btnName}" pressed!')
+          # SHOW NEW PAGE
+        if btnName == "btn_pack_station":
+            # print("Save BTN clicked!")
+            widgets.stackedWidget.setCurrentWidget(widgets.packing_stations) # SET PAGE
+            UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
 
+        # select all in surplus declared in stations
+        if btnName == "btn_selectall":
+            # print("Save BTN clicked!")
+            self.select_all()
+        
+        # deselect all in surplus declared in stations
+        if btnName == "btn_deselectall":
+            # print("Save BTN clicked!")
+            self.deselect_all()
+        
+        # btn restocker surplus
+        if btnName == "btn_restocker_surplus":
+            # print("Save BTN clicked!")
+            self.restocker()
+   
 
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
@@ -205,11 +220,12 @@ class MainWindow(QMainWindow):
             if self.RefConenctor.connect() : 
                 self.GetPickAnomalies()
                 UIFunctions.getuserinfo(self)
+                self.GetBDD_Surplus()
                 widgets.UserInfo.setText(User.REFFULLNAME)
                 widgets.btn_home.setVisible(True)
                 widgets.btn_surplus.setVisible(True)
                 widgets.btn_widgets.setVisible(True)
-                widgets.pushButton_2.setVisible(True)
+                widgets.btn_pack_station.setVisible(True)
                 widgets.btn_login.setVisible(False)
                 widgets.stackedWidget.setCurrentWidget(widgets.home) # SET PAGE
                 widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
@@ -237,8 +253,6 @@ class MainWindow(QMainWindow):
                 toast.setCloseButtonIconColor(QColor('#F39E4E'))
                 toast.show()
 
-            
-            
 
     def GetPickAnomalies(self):
        
@@ -250,10 +264,10 @@ class MainWindow(QMainWindow):
             widgets.PickAnomalies.setColumnCount(len(anomalies_df.columns))
             widgets.PickAnomalies.setHorizontalHeaderLabels(anomalies_df.columns.tolist())
 
-            # Populate the table with data
             for row in range(len(anomalies_df)):
                 for col in range(len(anomalies_df.columns)):
                     item = QTableWidgetItem(str(anomalies_df.iat[row, col]))
+                    item.setFlags(item.flags() & ~Qt.ItemIsEditable)
                     widgets.PickAnomalies.setItem(row, col, item)
                 
     def RefreshPickAnomalies(self):
@@ -283,7 +297,7 @@ class MainWindow(QMainWindow):
             widgets.btn_home.setVisible(False)
             widgets.btn_surplus.setVisible(False)
             widgets.btn_widgets.setVisible(False)
-            widgets.pushButton_2.setVisible(False)
+            widgets.btn_pack_station.setVisible(False)
             widgets.btn_login.setVisible(True)
             widgets.btn_login.setStyleSheet(UIFunctions.selectMenu(widgets.btn_login.styleSheet()))
     
@@ -334,6 +348,252 @@ class MainWindow(QMainWindow):
             widgets.quantite.setText("")
             widgets.Emp_initial.setText("")
             widgets.hospital_emp.setCurrentIndex(0)
+    
+    def refreshPackingStation(self):
+        btn = self.sender()
+        btnName = btn.objectName()
+        if btnName == "refresh_stations":
+            anomalies_df = UIFunctions.refreshDBSurplus(self)
+    
+    def researchinBDD_surplus(self):
+        btn = self.sender()
+        btnName = btn.objectName()
+        if btnName == "search_by_poste":
+            searchkey = widgets.poste_search.text()
+            self.GetBDD_Surplus(searchkey)
+    
+    # def GetBDD_Surplus(self, filtre=''):
+
+    #     widgets.packing_status.clearContents()
+    #     widgets.packing_status.setRowCount(0)
+    #     red_brush = QBrush(QColor(255, 0, 0)) 
+
+    #     surplus_df = UIFunctions.getSurplus(self)
+
+    #     if surplus_df is not None and not surplus_df.empty:
+    #         # Apply filter only if the 'filtre' parameter is not empty
+    #         if filtre.strip():  # .strip() removes any leading/trailing whitespace
+    #             surplus_df = surplus_df[
+    #                 (surplus_df['POST'].str.contains(filtre, case=False, na=False)) |
+    #                 (surplus_df['ASIN'].str.contains(filtre, case=False, na=False))
+    #             ]
+
+    #         if not surplus_df.empty:
+
+    #             widgets.packing_status.setRowCount(len(surplus_df))
+    #             widgets.packing_status.setColumnCount(len(surplus_df.columns)) 
+               
+    #             headers = [col for col in surplus_df.columns if col != 'state']  # Exclude 'state' from headers
+    #             headers.append('Select')  #
+    
+    #             widgets.packing_status.setHorizontalHeaderLabels(headers)
+
+    #             for row in range(len(surplus_df)):
+    #                 checkbox_widget = QWidget()
+    #                 checkbox_layout = QHBoxLayout()
+    #                 checkbox_layout.setAlignment(Qt.AlignCenter)
+    #                 checkbox = QCheckBox()
+    #                 checkbox_layout.addWidget(checkbox)
+    #                 checkbox_widget.setLayout(checkbox_layout)
+                    
+    #                 for col in range(len(headers)-1):
+    #                     item = QTableWidgetItem(str(surplus_df.iat[row, col]))
+    #                     print(str(surplus_df.iat[row, col]))
+    #                     item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+    #                     widgets.packing_status.setItem(row, col , item)  
+
+
+    #                 # print(surplus_df.columns)
+    #                 # if int(surplus_df.iat[row, len(surplus_df.columns)-1]) == 1 :
+    #                 #     for c in range(len(headers)-1):
+    #                 #        widgets.packing_status.item(row, c).setBackground(red_brush)
+
+
+    #                 # widgets.packing_status.setCellWidget(row, len(headers), checkbox_widget)             
+                     
+    #             else:
+    #                 widgets.packing_status.clearContents()
+    #                 widgets.packing_status.setRowCount(0)
+                
+    def GetBDD_Surplus(self, filtre=''):
+
+        widgets.packing_status.clearContents()
+        widgets.packing_status.setRowCount(0)
+        red_brush = QBrush(QColor(255, 0, 0)) 
+
+        df=UIFunctions.getSurplus(self)
+        surplus_df = UIFunctions.getSurplus(self).drop(columns=['state'])
+        
+        if surplus_df is not None and not surplus_df.empty:
+            # Apply filter only if the 'filtre' parameter is not empty
+            if filtre.strip():  # .strip() removes any leading/trailing whitespace
+                surplus_df = surplus_df[
+                    (surplus_df['POST'].str.contains(filtre, case=False, na=False)) |
+                    (surplus_df['ASIN'].str.contains(filtre, case=False, na=False))
+                ]
+
+            if not surplus_df.empty:
+
+                widgets.packing_status.setRowCount(len(surplus_df))
+                widgets.packing_status.setColumnCount(len(surplus_df.columns) + 1) 
+                headers = surplus_df.columns.tolist() +  ['Select'] 
+                widgets.packing_status.setHorizontalHeaderLabels(headers)
+
+                for row in range(len(surplus_df)):
+                    checkbox_widget = QWidget()
+                    checkbox_layout = QHBoxLayout()
+                    checkbox_layout.setAlignment(Qt.AlignCenter)
+                    checkbox = QCheckBox()
+                    checkbox_layout.addWidget(checkbox)
+                    checkbox_widget.setLayout(checkbox_layout)
+                    
+                    for col in range(len(surplus_df.columns)):
+                        item = QTableWidgetItem(str(surplus_df.iat[row, col]))
+                        item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                        widgets.packing_status.setItem(row, col , item)  # Data starts from 2nd column (col + 1)
+                        
+                    if int(surplus_df.iat[row, len(surplus_df.columns)-1]) == 1 :
+                        for c in range(len(headers)-2):
+                           widgets.packing_status.item(row, c).setBackground(red_brush)
+                    widgets.packing_status.setCellWidget(row, len(surplus_df.columns), checkbox_widget)  
+            else:
+                widgets.packing_status.clearContents()
+                widgets.packing_status.setRowCount(0)           
+
+    
+    # function to select and deselect item for surplus 
+
+    def select_all(self):
+        row_count = widgets.packing_status.rowCount()
+        
+        for row in range(row_count):
+            checkbox_widget = widgets.packing_status.cellWidget(row, widgets.packing_status.columnCount() - 1)
+            
+            if checkbox_widget is not None:
+                checkbox = checkbox_widget.findChild(QCheckBox)
+                if checkbox is not None:
+                    checkbox.setChecked(True)
+    def deselect_all(self):
+  
+        row_count = widgets.packing_status.rowCount()
+        
+        for row in range(row_count):
+            checkbox_widget = widgets.packing_status.cellWidget(row, widgets.packing_status.columnCount() - 1)
+            
+            if checkbox_widget is not None:
+                checkbox = checkbox_widget.findChild(QCheckBox)
+                if checkbox is not None:
+                    checkbox.setChecked(False)
+    # function to reput in stock all surplus item
+    def restocker(self):
+        # add qmessagebox to confirm
+
+     
+        selected_rows = []
+     
+        row_count = widgets.packing_status.rowCount()
+        col_count = widgets.packing_status.columnCount() - 1  # Exclude the checkbox column
+        
+
+        headers = [widgets.packing_status.horizontalHeaderItem(col).text() for col in range(col_count)]
+      
+        for row in range(row_count):
+            
+            checkbox_widget = widgets.packing_status.cellWidget(row, col_count)
+            
+            if checkbox_widget is not None:
+         
+                checkbox = checkbox_widget.findChild(QCheckBox)
+                if checkbox is not None and checkbox.isChecked():
+                   
+                    row_data = []
+                    for col in range(col_count):
+                      
+                        item = widgets.packing_status.item(row, col)
+                        row_data.append(item.text())
+
+                    selected_rows.append(row_data)
+        
+   
+        if selected_rows:
+            selected_df = pd.DataFrame(selected_rows, columns=headers)
+        else:
+            selected_df = pd.DataFrame(columns=headers)
+        UIFunctions.restockageSurplus(self,selected_df)
+        self.GetBDD_Surplus()
+        # function to make status of this order at 2
+
+
+
+
+    def get_table_data(self, table_widget):
+        """Retrieves data from a QTableWidget and returns it as a DataFrame."""
+        row_count = table_widget.rowCount()
+        col_count = table_widget.columnCount()
+
+        data = {}
+        for col in range(col_count):
+            header = table_widget.horizontalHeaderItem(col).text()
+            data[header] = []
+            for row in range(row_count):
+                item = table_widget.item(row, col)
+                data[header].append(item.text() if item else '')
+
+        return pd.DataFrame(data)
+    
+    def printCurrentData(self):
+        current_index = widgets.stackedWidget.currentIndex()
+        print(current_index)
+        if current_index == 1:
+            print("Anomalies Data:")
+            df =self.get_table_data(widgets.PickAnomalies)
+            df.to_excel("anomalies.xlsx", index=False)
+            toast = Toast(self)
+            toast.setDuration(5000)  # Hide after 5 seconds
+            toast.setTitle('Fichier anomalies.xlsx a été télécharger')
+            toast.setPosition(ToastPosition.TOP_RIGHT)  # Default: ToastPosition.BOTTOM_RIGHT
+            toast.applyPreset(ToastPreset.SUCCESS)  # Apply style preset
+            toast.setBackgroundColor(QColor('#282C34'))
+            toast.setTitleColor(QColor('#FFFFFF'))
+            toast.setDurationBarColor(QColor('#F39E4E'))
+            toast.setIconColor(QColor('#F39E4E'))
+            toast.setIconSeparatorColor(QColor('#F39E4E'))
+            toast.setCloseButtonIconColor(QColor('#F39E4E'))
+            toast.show()
+
+
+        elif current_index == 3:
+            print("Surplus Data:")
+            df =self.get_table_data(widgets.packing_status)
+            df.to_excel("surplus.xlsx", index=False)
+            toast = Toast(self)
+            toast.setDuration(5000)  # Hide after 5 seconds
+            toast.setTitle('Fichier surplus.xlsx a été télécharger')
+            toast.setPosition(ToastPosition.TOP_RIGHT)  # Default: ToastPosition.BOTTOM_RIGHT
+            toast.applyPreset(ToastPreset.SUCCESS)  # Apply style preset
+            toast.setBackgroundColor(QColor('#282C34'))
+            toast.setTitleColor(QColor('#FFFFFF'))
+            toast.setDurationBarColor(QColor('#F39E4E'))
+            toast.setIconColor(QColor('#F39E4E'))
+            toast.setIconSeparatorColor(QColor('#F39E4E'))
+            toast.setCloseButtonIconColor(QColor('#F39E4E'))
+            toast.show()
+        
+        else :
+            toast = Toast(self)
+            toast.setDuration(5000)  # Hide after 5 seconds
+            toast.setTitle('Aucune donnée disponible pour le téléchargement')
+            toast.setPosition(ToastPosition.TOP_RIGHT)  # Default: ToastPosition.BOTTOM_RIGHT
+            toast.applyPreset(ToastPreset.ERROR)  # Apply style preset
+            toast.setBackgroundColor(QColor('#282C34'))
+            toast.setTitleColor(QColor('#FFFFFF'))
+            toast.setDurationBarColor(QColor('#F39E4E'))
+            toast.setIconColor(QColor('#F39E4E'))
+            toast.setIconSeparatorColor(QColor('#F39E4E'))
+            toast.setCloseButtonIconColor(QColor('#F39E4E'))
+            toast.show()
+
+
 
                 
         

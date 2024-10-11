@@ -16,7 +16,7 @@
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
-from pyqttoast import Toast, ToastPreset
+from pyqttoast import Toast, ToastPreset,ToastPosition
 
 from datetime import datetime
 import pyodbc
@@ -37,7 +37,7 @@ from . app_settings import SolvixDBConnector
 
 
 # GUI FILE
-from . ui_main import Ui_MainWindow
+from .ui_main import Ui_MainWindow
 
 # IMPORT FUNCTIONS
 from . ui_functions import *
